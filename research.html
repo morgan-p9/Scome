@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research – EKSUMSA SCOME</title>
+<style>
+/* === SHARED === */
+/* ═══════════════════════════════════════════
+   EKSUMSA SCOME — Shared Stylesheet
+   ═══════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:    #0d0d0b;
+  --ink2:   #181714;
+  --sand:   #e9e5dc;
+  --cream:  #f4f1eb;
+  --green:  #1a6b2f;
+  --lime:   #c8f564;
+  --muted:  #8a8880;
+  --rule:   rgba(255,255,255,0.07);
+  --nav-h:  68px;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Outfit', sans-serif; background: var(--ink); color: var(--cream); overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* ─── NAV ─── */
+#site-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: var(--nav-h);
+  background: rgba(13,13,11,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule);
+  display: flex; align-items: center;
+  padding: 0 40px;
+  gap: 0;
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 12px;
+  flex-shrink: 0; margin-right: auto;
+}
+.nav-badge {
+  width: 38px; height: 38px; border-radius: 50%;
+  border: 2px solid var(--green);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Bebas Neue'; font-size: 11px; color: var(--lime); letter-spacing: 1px;
+}
+.nav-brand-text { font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #fff; line-height: 1.4; }
+.nav-brand-text span { color: var(--muted); font-weight: 400; display: block; font-size: 10px; }
+
+.nav-links {
+  display: flex; align-items: center; gap: 4px;
+  list-style: none;
+}
+.nav-links a {
+  display: block;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 12px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: rgba(255,255,255,.55);
+  transition: color .2s, background .2s;
+  white-space: nowrap;
+}
+.nav-links a:hover { color: #fff; background: rgba(255,255,255,.06); }
+.nav-links a.active { color: var(--lime); background: rgba(200,245,100,.08); }
+
+.nav-socials {
+  display: flex; align-items: center; gap: 10px;
+  margin-left: 20px; padding-left: 20px;
+  border-left: 1px solid var(--rule);
+}
+.nav-socials a {
+  width: 32px; height: 32px;
+  border-radius: 50%; border: 1px solid rgba(255,255,255,.12);
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color .2s, background .2s;
+}
+.nav-socials a:hover { border-color: var(--lime); background: rgba(200,245,100,.1); }
+.nav-socials svg { width: 14px; height: 14px; fill: rgba(255,255,255,.55); transition: fill .2s; }
+.nav-socials a:hover svg { fill: var(--lime); }
+
+/* Hamburger */
+.nav-hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 6px; margin-left: 12px;
+}
+.nav-hamburger span { width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: all .25s; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-mobile-menu {
+  display: none; position: fixed;
+  top: var(--nav-h); left: 0; right: 0;
+  background: rgba(13,13,11,.98);
+  border-bottom: 1px solid var(--rule);
+  padding: 20px 24px 28px;
+  z-index: 999; flex-direction: column; gap: 4px;
+}
+.nav-mobile-menu.open { display: flex; }
+.nav-mobile-menu a {
+  display: block; padding: 12px 16px; border-radius: 8px;
+  font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  color: rgba(255,255,255,.6); transition: color .2s, background .2s;
+}
+.nav-mobile-menu a:hover, .nav-mobile-menu a.active { color: var(--lime); background: rgba(200,245,100,.07); }
+.nav-mobile-socials {
+  display: flex; gap: 12px; margin-top: 14px; padding-top: 14px;
+  border-top: 1px solid var(--rule);
+}
+.nav-mobile-socials a {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.12);
+  display: flex; align-items: center; justify-content: center;
+  padding: 0;
+}
+.nav-mobile-socials a:hover { border-color: var(--lime); background: rgba(200,245,100,.1); }
+.nav-mobile-socials svg { width: 15px; height: 15px; fill: rgba(255,255,255,.55); }
+
+/* Page offset */
+.page-body { padding-top: var(--nav-h); }
+
+/* ─── FOOTER ─── */
+.site-footer {
+  background: var(--ink);
+  border-top: 1px solid var(--rule);
+  padding: 48px 60px 36px;
+}
+.footer-inner {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px; margin-bottom: 36px;
+}
+.footer-col-title {
+  font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 16px;
+}
+.footer-brand-big {
+  font-family: 'Bebas Neue'; font-size: 36px; letter-spacing: .02em;
+  color: rgba(255,255,255,.08); line-height: 1; margin-bottom: 10px;
+}
+.footer-tagline { font-size: 13px; color: rgba(255,255,255,.4); line-height: 1.6; font-style: italic; }
+.footer-links { display: flex; flex-direction: column; gap: 8px; }
+.footer-links a { font-size: 13px; color: rgba(255,255,255,.45); transition: color .2s; }
+.footer-links a:hover { color: var(--lime); }
+.footer-socials-row { display: flex; gap: 10px; }
+.footer-socials-row a {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.12);
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color .2s, background .2s;
+}
+.footer-socials-row a:hover { border-color: var(--lime); background: rgba(200,245,100,.1); }
+.footer-socials-row svg { width: 15px; height: 15px; fill: rgba(255,255,255,.5); }
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 24px; border-top: 1px solid var(--rule);
+  font-size: 11px; color: var(--muted); letter-spacing: .08em;
+}
+
+/* ─── SECTION UTILITIES ─── */
+.section-eyebrow {
+  font-size: 11px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--lime); display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
+}
+.section-eyebrow::before { content: ''; width: 30px; height: 2px; background: var(--lime); }
+.section-title-xl {
+  font-family: 'Bebas Neue'; font-size: clamp(48px,6vw,88px);
+  line-height: 1; letter-spacing: .02em; color: #fff;
+}
+.section-title-xl.dark { color: var(--ink); }
+.section-body-text { font-size: 17px; line-height: 1.7; color: rgba(255,255,255,.6); max-width: 640px; }
+.section-body-text.dark { color: rgba(13,13,11,.65); }
+
+/* reveal animation */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in-view { opacity: 1; transform: none; }
+
+/* ─── PILL BUTTON ─── */
+.btn-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px; border-radius: 100px;
+  font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  transition: all .22s; cursor: pointer; border: none;
+}
+.btn-pill.primary { background: var(--lime); color: var(--ink); }
+.btn-pill.primary:hover { background: #d4ff70; transform: translateY(-2px); }
+.btn-pill.outline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.2); }
+.btn-pill.outline:hover { border-color: var(--lime); color: var(--lime); transform: translateY(-2px); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  #site-nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .nav-socials { display: none; }
+  .nav-hamburger { display: flex; }
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+  .site-footer { padding: 40px 24px 28px; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+}
+
+/* === PAGE === */
+.page-hero{min-height:52vh;background:var(--ink);display:flex;flex-direction:column;justify-content:flex-end;padding:80px 60px 64px;position:relative;overflow:hidden;}
+.page-hero-bg{position:absolute;bottom:-60px;right:-20px;font-family:'Bebas Neue';font-size:clamp(160px,22vw,320px);line-height:1;color:rgba(255,255,255,.025);user-select:none;z-index:0;}
+.page-hero-content{position:relative;z-index:1;max-width:800px;}
+#coming{background:var(--ink2);padding:100px 60px;text-align:center;}
+.coming-icon{width:80px;height:80px;border-radius:50%;border:2px solid rgba(200,245,100,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 32px;}
+.coming-icon svg{width:32px;height:32px;stroke:var(--lime);fill:none;stroke-width:1.5;}
+.coming-title{font-family:'Bebas Neue';font-size:clamp(48px,8vw,100px);color:#fff;line-height:.95;margin-bottom:20px;}
+.coming-sub{font-size:18px;color:rgba(255,255,255,.4);max-width:520px;margin:0 auto 40px;line-height:1.7;}
+#preview{background:var(--sand);padding:100px 60px;}
+.preview-grid{max-width:1100px;margin:40px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.preview-card{background:var(--ink);padding:40px 30px;position:relative;overflow:hidden;}
+.preview-tag{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);margin-bottom:16px;}
+.preview-verdict{font-size:18px;font-weight:700;color:#fff;line-height:1.5;margin-bottom:14px;}
+.preview-note{font-size:13px;color:rgba(255,255,255,.35);line-height:1.55;}
+.preview-coming{display:inline-flex;align-items:center;gap:6px;margin-top:18px;padding:7px 14px;border-radius:6px;background:rgba(200,245,100,.07);border:1px solid rgba(200,245,100,.15);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(200,245,100,.6);}
+@media(max-width:900px){.page-hero{padding:60px 24px 48px;}#coming{padding:70px 24px;}#preview{padding:70px 24px;}.preview-grid{grid-template-columns:1fr;}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body class="page-body">
+<nav id="site-nav">
+  <div class="nav-brand"><div class="nav-badge">EK</div><div class="nav-brand-text">EKSUMSA SCOME<span>Ekiti State University · Ado-Ekiti</span></div></div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="medbites.html">Med Bites</a></li>
+    <li><a href="resources.html">Resources</a></li><li><a href="research.html" class="active">Research</a></li>
+    <li><a href="workshops.html">Workshops</a></li>
+  </ul>
+  <div class="nav-socials">
+    <a href="https://x.com/i/status/2032176159362822282" target="_blank"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.912-5.622z"/></svg></a>
+    <a href="https://www.instagram.com/p/DVy85rdCA8X/?igsh=MXJ3NjY2MWo5M2Y3cg==" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+    <a href="https://vt.tiktok.com/ZSuUeLGCw/" target="_blank"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.33a8.16 8.16 0 0 0 4.77 1.52V7.4a4.85 4.85 0 0 1-1-.71z"/></svg></a>
+  </div>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="nav-mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a><a href="medbites.html">Med Bites</a>
+  <a href="resources.html">Academic Resources</a><a href="research.html" class="active">Research</a>
+  <a href="workshops.html">Workshops & Outreach</a>
+  <div class="nav-mobile-socials">
+    <a href="https://x.com/i/status/2032176159362822282" target="_blank"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,.6)"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.912-5.622z"/></svg></a>
+    <a href="https://www.instagram.com/p/DVy85rdCA8X/?igsh=MXJ3NjY2MWo5M2Y3cg==" target="_blank"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,.6)"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+    <a href="https://vt.tiktok.com/ZSuUeLGCw/" target="_blank"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,.6)"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.33a8.16 8.16 0 0 0 4.77 1.52V7.4a4.85 4.85 0 0 1-1-.71z"/></svg></a>
+  </div>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-bg">RESEARCH</div>
+  <div class="page-hero-content">
+    <div class="section-eyebrow" style="animation:fadeUp .7s ease both">Medical Education Research</div>
+    <h1 class="section-title-xl" style="animation:fadeUp .7s .1s ease both;margin-bottom:20px;">Research<br>Findings</h1>
+    <p class="section-body-text" style="animation:fadeUp .7s .2s ease both;">Curated medical education research verdicts — what the evidence says about how we learn medicine.</p>
+  </div>
+</section>
+
+<section id="coming">
+  <div class="coming-icon reveal"><svg viewBox="0 0 24 24"><path d="M12 2v6l3 3"/><circle cx="12" cy="14" r="8"/></svg></div>
+  <div class="coming-title reveal">Coming<br>Soon</div>
+  <p class="coming-sub reveal">We're curating evidence-based research findings on medical education. Each card will present a key verdict with a link to the full paper.</p>
+  <a href="index.html" class="btn-pill outline reveal" style="margin:0 auto;">← Back to Home</a>
+</section>
+
+<section id="preview">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-eyebrow reveal" style="color:var(--green)">Preview</div>
+    <h2 class="section-title-xl dark reveal" style="margin-bottom:8px;">What to expect</h2>
+  </div>
+  <div class="preview-grid">
+    <div class="preview-card reveal">
+      <div class="preview-tag">Digital Learning</div>
+      <div class="preview-verdict">"Digital learning among medical students has been found to be as effective as — and in some cases superior to — traditional lectures."</div>
+      <div class="preview-note">A growing body of evidence supports the integration of e-learning into preclinical and clinical curricula.</div>
+      <div class="preview-coming">🔒 Research link coming soon</div>
+    </div>
+    <div class="preview-card reveal">
+      <div class="preview-tag">Peer Teaching</div>
+      <div class="preview-verdict">"Near-peer teaching significantly improves both the teacher's and the learner's academic performance and clinical reasoning."</div>
+      <div class="preview-note">Studies across multiple institutions show peer-led sessions boost retention and clinical confidence.</div>
+      <div class="preview-coming">🔒 Research link coming soon</div>
+    </div>
+    <div class="preview-card reveal">
+      <div class="preview-tag">Spaced Repetition</div>
+      <div class="preview-verdict">"Spaced repetition is consistently the most effective study technique for long-term retention of medical knowledge."</div>
+      <div class="preview-note">Evidence-based learning science supports this as the gold standard approach for high-volume content.</div>
+      <div class="preview-coming">🔒 Research link coming soon</div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div><div class="footer-brand-big">EKSUMSA<br>SCOME</div><p class="footer-tagline">"Advancing Medical Education,<br>One Student at a Time."</p></div>
+    <div><div class="footer-col-title">Navigate</div><div class="footer-links"><a href="index.html">Home</a><a href="medbites.html">Med Bites</a><a href="resources.html">Academic Resources</a><a href="research.html">Research</a><a href="workshops.html">Workshops & Outreach</a></div></div>
+    <div><div class="footer-col-title">Connect</div><div class="footer-socials-row" style="margin-bottom:20px;"><a href="https://x.com/i/status/2032176159362822282" target="_blank"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.912-5.622z"/></svg></a><a href="https://www.instagram.com/p/DVy85rdCA8X/?igsh=MXJ3NjY2MWo5M2Y3cg==" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a><a href="https://vt.tiktok.com/ZSuUeLGCw/" target="_blank"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.33a8.16 8.16 0 0 0 4.77 1.52V7.4a4.85 4.85 0 0 1-1-.71z"/></svg></a></div><p style="font-size:13px;color:rgba(255,255,255,.35);line-height:1.6;">Ekiti State University<br>Ado-Ekiti, Ekiti State, Nigeria</p></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 EKSUMSA SCOME — All rights reserved</span><span>IFMSA · Medical Students Worldwide</span></div>
+</footer>
+<script>
+function toggleMenu(){document.getElementById('hamburger').classList.toggle('open');document.getElementById('mobile-menu').classList.toggle('open');}
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in-view');obs.unobserve(x.target);}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

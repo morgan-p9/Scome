@@ -3,1241 +3,478 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Med Bites – EKSUMSA SCOME</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<title>EKSUMSA SCOME – Home</title>
+<link rel="stylesheet" href="style.css">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --ink:   #0d0d0b;
-  --sand:  #e9e5dc;
-  --cream: #f4f1eb;
-  --green: #1a6b2f;
-  --lime:  #c8f564;
-  --muted: #8a8880;
-  --rule:  rgba(0,0,0,0.12);
-}
-
-html { scroll-behavior: smooth; }
-body { font-family: 'Outfit', sans-serif; background: var(--ink); color: var(--cream); overflow-x: hidden; }
-
-/* ─── HERO ─── */
+/* ── HERO ── */
 #hero {
-  min-height: 100vh;
-  background: var(--ink);
+  min-height: 100vh; background: var(--ink);
   display: flex; flex-direction: column;
   position: relative; overflow: hidden;
 }
-.hero-bg-text {
-  position: absolute; bottom: -60px; right: -20px;
-  font-family: 'Bebas Neue'; font-size: clamp(180px,28vw,400px);
-  line-height:1; color: rgba(255,255,255,0.025);
-  user-select:none; pointer-events:none; letter-spacing:-4px; z-index:0;
+.hero-bg-word {
+  position: absolute; bottom: -80px; right: -40px;
+  font-family: 'Bebas Neue'; font-size: clamp(200px,30vw,440px);
+  line-height: 1; color: rgba(255,255,255,.025);
+  user-select: none; pointer-events: none; letter-spacing: -6px; z-index: 0;
 }
-.hero-topbar {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 28px 60px; position: relative; z-index:2;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
+.hero-content {
+  flex: 1; display: flex; flex-direction: column;
+  justify-content: center; padding: 80px 60px;
+  position: relative; z-index: 2; max-width: 900px;
 }
-.logo-group { display:flex; align-items:center; gap:14px; }
-.logo-badge {
-  width:46px; height:46px; border-radius:50%;
-  border:2px solid var(--green);
-  display:flex; align-items:center; justify-content:center;
-  font-family:'Bebas Neue'; font-size:13px; letter-spacing:1px; color:var(--lime);
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 6px 16px; border-radius: 100px;
+  border: 1px solid rgba(200,245,100,.3);
+  font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--lime); margin-bottom: 32px; width: fit-content;
+  animation: fadeUp .7s ease both;
 }
-.logo-text { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#fff; line-height:1.5; }
-.logo-text span { color:var(--muted); font-weight:400; display:block; }
-.scome-tag {
-  display:flex; align-items:center; gap:10px;
-  font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--muted); text-align:right; line-height:1.5;
-}
-.scome-ring {
-  width:34px; height:34px; border-radius:50%; border:2px solid #333;
-  display:flex; align-items:center; justify-content:center; flex-shrink:0;
-}
-.scome-ring svg { width:16px; height:16px; stroke:#666; fill:none; stroke-width:2; }
-
-.hero-centre {
-  flex:1; display:flex; flex-direction:column;
-  align-items:flex-start; justify-content:center;
-  padding:60px 60px 80px; position:relative; z-index:2;
-}
-.hero-eyebrow {
-  font-size:13px; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
-  color:var(--lime); display:flex; align-items:center; gap:14px; margin-bottom:24px;
-  animation:fadeUp .8s ease both;
-}
-.hero-eyebrow::before { content:''; width:40px; height:2px; background:var(--lime); }
 .hero-title {
-  font-family:'Bebas Neue'; font-size:clamp(80px,14vw,180px);
-  line-height:.9; letter-spacing:.01em; color:#fff;
-  animation:fadeUp .8s .1s ease both;
+  font-family: 'Bebas Neue';
+  font-size: clamp(72px,13vw,160px);
+  line-height: .92; letter-spacing: .01em; color: #fff;
+  animation: fadeUp .7s .1s ease both;
 }
-.hero-title em { font-style:normal; color:transparent; -webkit-text-stroke:2px rgba(255,255,255,.3); }
+.hero-title em { font-style: normal; color: transparent; -webkit-text-stroke: 2px rgba(255,255,255,.25); }
 .hero-sub {
-  margin-top:28px; font-size:20px; font-weight:400;
-  color:rgba(255,255,255,.45); max-width:520px; line-height:1.6;
-  animation:fadeUp .8s .2s ease both;
+  margin-top: 32px; font-size: 20px; font-weight: 400;
+  color: rgba(255,255,255,.45); max-width: 560px; line-height: 1.65;
+  font-style: italic;
+  animation: fadeUp .7s .2s ease both;
 }
-.hero-subjects { margin-top:64px; display:flex; gap:14px; flex-wrap:wrap; animation:fadeUp .8s .3s ease both; }
-.subj-pill {
-  display:flex; align-items:center; gap:10px;
-  padding:14px 26px; border-radius:100px;
-  border:1px solid rgba(255,255,255,.15);
-  font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  color:#fff; text-decoration:none; cursor:pointer;
-  background:rgba(255,255,255,.04);
-  transition:all .25s;
+.hero-ctas {
+  margin-top: 48px; display: flex; gap: 14px; flex-wrap: wrap;
+  animation: fadeUp .7s .3s ease both;
 }
-.subj-pill:hover { background:rgba(200,245,100,.1); border-color:var(--lime); color:var(--lime); transform:translateY(-2px); }
-.subj-pill .num { font-family:'Bebas Neue'; font-size:16px; color:var(--lime); }
-.hero-strip {
-  display:flex; align-items:center; justify-content:space-between;
-  padding:18px 60px; border-top:1px solid rgba(255,255,255,.07); position:relative; z-index:2;
+.hero-stats {
+  display: flex; gap: 48px; margin-top: 72px;
+  animation: fadeUp .7s .4s ease both;
 }
-.hero-strip-text { font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
-.scroll-cue { display:flex; align-items:center; gap:10px; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
-.scroll-cue svg { width:18px; height:18px; stroke:var(--muted); fill:none; animation:bob 1.6s ease-in-out infinite; }
+.hero-stat-num {
+  font-family: 'Bebas Neue'; font-size: 48px; line-height: 1; color: var(--lime);
+}
+.hero-stat-label {
+  font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(255,255,255,.35); margin-top: 4px;
+}
 
-@keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
+/* ── ABOUT ── */
+#about {
+  background: var(--sand); padding: 120px 60px;
+}
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  max-width: 1200px; margin: 0 auto;
+}
+.about-num {
+  font-family: 'Bebas Neue'; font-size: 200px; line-height: .9;
+  color: rgba(0,0,0,.06); user-select: none; text-align: right;
+}
+
+/* ── VISION / MISSION ── */
+#vision-mission {
+  background: var(--ink); padding: 120px 60px;
+}
+.vm-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+  max-width: 1200px; margin: 40px auto 0;
+}
+.vm-card {
+  background: var(--ink2); padding: 60px 50px;
+  border: 1px solid var(--rule);
+}
+.vm-card-label {
+  font-size: 10px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--lime); margin-bottom: 24px;
+  display: flex; align-items: center; gap: 10px;
+}
+.vm-card-label::before { content: ''; width: 24px; height: 2px; background: var(--lime); }
+.vm-card-body { font-size: 18px; font-weight: 400; color: rgba(255,255,255,.72); line-height: 1.75; }
+.vm-card-body strong { color: #fff; font-weight: 700; }
+
+/* ── PILLARS ── */
+#pillars {
+  background: var(--cream); padding: 120px 60px;
+}
+.pillars-header { max-width: 1200px; margin: 0 auto 60px; }
+.pillars-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(5,1fr); gap: 2px;
+}
+.pillar-card {
+  background: var(--ink); padding: 40px 28px;
+  position: relative; overflow: hidden;
+  transition: transform .25s;
+}
+.pillar-card:hover { transform: translateY(-4px); }
+.pillar-num {
+  font-family: 'Bebas Neue'; font-size: 80px; line-height: 1;
+  color: rgba(255,255,255,.04); position: absolute; bottom: -8px; right: 10px;
+  user-select: none;
+}
+.pillar-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: rgba(200,245,100,.12); border: 1px solid rgba(200,245,100,.2);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+}
+.pillar-icon svg { width: 18px; height: 18px; stroke: var(--lime); fill: none; stroke-width: 2; }
+.pillar-label {
+  font-size: 10px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--lime); margin-bottom: 12px;
+}
+.pillar-title { font-size: 16px; font-weight: 700; color: #fff; line-height: 1.4; position: relative; z-index: 1; }
+
+/* ── BOARD ── */
+#board {
+  background: var(--ink); padding: 120px 60px;
+}
+.board-header { max-width: 1200px; margin: 0 auto 60px; }
+.board-table {
+  max-width: 900px; margin: 0 auto;
+  border: 1px solid var(--rule); border-radius: 4px; overflow: hidden;
+}
+.board-row {
+  display: grid; grid-template-columns: 44px 1fr 1fr;
+  border-bottom: 1px solid var(--rule); transition: background .2s;
+}
+.board-row:last-child { border-bottom: none; }
+.board-row:hover { background: rgba(255,255,255,.03); }
+.board-row.header { background: rgba(200,245,100,.06); }
+.board-cell {
+  padding: 16px 20px; font-size: 14px; color: rgba(255,255,255,.75); line-height: 1.4;
+}
+.board-row.header .board-cell {
+  font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--lime);
+}
+.board-cell.num { color: rgba(255,255,255,.3); font-family: 'Bebas Neue'; font-size: 18px; }
+.board-cell.role { font-weight: 700; color: #fff; }
+
+/* ── PAGE NAV STRIP ── */
+#nav-strip {
+  background: var(--sand); padding: 80px 60px;
+}
+.nav-strip-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 2px;
+}
+.nav-strip-card {
+  background: var(--ink); padding: 36px 30px;
+  display: flex; flex-direction: column; gap: 14px;
+  border: 1px solid transparent; transition: border-color .2s, transform .2s;
+  position: relative; overflow: hidden;
+}
+.nav-strip-card:hover { border-color: var(--lime); transform: translateY(-3px); }
+.nav-strip-num {
+  font-family: 'Bebas Neue'; font-size: 56px; line-height: 1; color: rgba(255,255,255,.06);
+  position: absolute; bottom: -6px; right: 10px; user-select: none;
+}
+.nav-strip-icon {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: rgba(200,245,100,.1); border: 1px solid rgba(200,245,100,.2);
+  display: flex; align-items: center; justify-content: center;
+}
+.nav-strip-icon svg { width: 16px; height: 16px; stroke: var(--lime); fill: none; stroke-width: 2; }
+.nav-strip-title { font-size: 18px; font-weight: 800; color: #fff; position: relative; z-index: 1; }
+.nav-strip-desc { font-size: 13px; color: rgba(255,255,255,.4); line-height: 1.5; position: relative; z-index: 1; }
+.nav-strip-arrow {
+  font-size: 20px; color: var(--lime); margin-top: auto;
+  transition: transform .2s; position: relative; z-index: 1;
+}
+.nav-strip-card:hover .nav-strip-arrow { transform: translateX(4px); }
+
 @keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
 
-/* ─── SUBJECT SECTION ─── */
-.subject-section { background:var(--sand); position:relative; }
-.subject-section:nth-of-type(odd) { background:var(--cream); }
-
-.section-header {
-  padding:80px 60px 50px;
-  display:flex; align-items:flex-end; justify-content:space-between;
-  border-bottom:2px solid var(--rule);
-  position:sticky; top:0; z-index:10; background:inherit;
+@media(max-width:900px){
+  .hero-content { padding: 60px 24px; }
+  .hero-stats { gap: 28px; flex-wrap: wrap; }
+  #about { padding: 80px 24px; }
+  .about-grid { grid-template-columns: 1fr; gap: 30px; }
+  .about-num { display: none; }
+  #vision-mission { padding: 80px 24px; }
+  .vm-grid { grid-template-columns: 1fr; }
+  #pillars { padding: 80px 24px; }
+  .pillars-grid { grid-template-columns: 1fr 1fr; }
+  #board { padding: 80px 24px; }
+  .board-row { grid-template-columns: 36px 1fr; }
+  .board-cell.name { grid-column: 1 / -1; padding-top: 0; }
+  #nav-strip { padding: 60px 24px; }
+  .nav-strip-inner { grid-template-columns: 1fr 1fr; }
 }
-.section-label { font-size:11px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--green); margin-bottom:12px; }
-.section-title { font-family:'Bebas Neue'; font-size:clamp(48px,6vw,88px); line-height:1; letter-spacing:.02em; color:var(--ink); }
-.section-count { font-family:'Bebas Neue'; font-size:120px; line-height:1; color:rgba(0,0,0,.06); user-select:none; }
-
-/* ─── CARDS GRID ─── */
-.cards-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(480px,1fr));
-  gap:2px; padding:2px;
-}
-
-/* flip card */
-.flip-card { background:transparent; perspective:1400px; height:520px; cursor:pointer; }
-.flip-inner {
-  position:relative; width:100%; height:100%;
-  transition:transform .6s cubic-bezier(.4,0,.2,1);
-  transform-style:preserve-3d;
-}
-.flip-card.flipped .flip-inner { transform:rotateY(180deg); }
-.flip-face {
-  position:absolute; inset:0;
-  backface-visibility:hidden; -webkit-backface-visibility:hidden;
-  display:flex; flex-direction:column; overflow:hidden;
-}
-.face-q { background:var(--ink); }
-.face-a { background:#181714; transform:rotateY(180deg); }
-
-.card-head {
-  padding:30px 36px 22px;
-  display:flex; align-items:center; justify-content:space-between;
-  border-bottom:1px solid rgba(255,255,255,.06);
-}
-.card-subj { font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.35); }
-.card-flip-hint { font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.2); display:flex; align-items:center; gap:6px; }
-.card-flip-hint svg { width:14px; height:14px; stroke:rgba(255,255,255,.2); fill:none; }
-.a-back-hint { color:var(--lime) !important; }
-.a-back-hint svg { stroke:var(--lime) !important; }
-
-.card-body { flex:1; padding:36px 36px 28px; display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden; }
-.q-num { position:absolute; right:-12px; bottom:-30px; font-family:'Bebas Neue'; font-size:240px; line-height:1; color:rgba(255,255,255,.025); user-select:none; }
-.q-badge { display:inline-block; padding:5px 14px; border-radius:100px; border:1px solid rgba(200,245,100,.3); font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--lime); margin-bottom:24px; width:fit-content; }
-.q-text { font-size:22px; font-weight:700; color:#fff; line-height:1.55; position:relative; z-index:1; max-width:500px; }
-
-.answer-label { font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.35); margin-bottom:8px; }
-.answer-title { font-family:'Bebas Neue'; font-size:52px; line-height:1; color:var(--lime); margin-bottom:6px; }
-.reason-divider { width:40px; height:3px; background:rgba(255,255,255,.1); border-radius:2px; margin:20px 0; }
-.reason-label { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:14px; }
-.reasons { display:flex; flex-direction:column; gap:10px; }
-.reason-item { display:flex; align-items:flex-start; gap:12px; font-size:15px; font-weight:500; color:rgba(255,255,255,.78); line-height:1.45; }
-.rbullet { width:6px; height:6px; min-width:6px; border-radius:50%; background:var(--lime); margin-top:7px; }
-.mnemonic { margin-top:18px; padding:12px 18px; border-left:3px solid var(--lime); background:rgba(200,245,100,.06); border-radius:0 6px 6px 0; }
-.mnemo-label { font-size:10px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--lime); margin-bottom:4px; }
-.mnemo-text { font-size:14px; font-weight:600; color:#fff; font-style:italic; line-height:1.5; }
-
-/* ─── FOOTER ─── */
-footer { background:var(--ink); padding:50px 60px; display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,.06); }
-.footer-brand { font-family:'Bebas Neue'; font-size:48px; color:rgba(255,255,255,.08); letter-spacing:.02em; }
-.footer-copy { font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
-
-/* reveal */
-.reveal { opacity:0; transform:translateY(30px); transition:opacity .6s ease, transform .6s ease; }
-.reveal.in-view { opacity:1; transform:none; }
-
-/* MCQ options */
-.mcq-options { display:flex; flex-direction:column; gap:9px; margin-top:20px; position:relative; z-index:1; }
-.mcq-opt {
-  display:flex; align-items:flex-start; gap:12px;
-  padding:11px 15px; border-radius:8px;
-  border:1px solid rgba(255,255,255,.1);
-  font-size:14px; font-weight:500; color:rgba(255,255,255,.7); line-height:1.4;
-  background:rgba(255,255,255,.03);
-}
-.mcq-opt .opt-letter { font-family:'Bebas Neue'; font-size:17px; color:rgba(255,255,255,.4); min-width:18px; line-height:1.2; }
-
-/* case scenario box */
-.case-scenario {
-  background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08);
-  border-radius:10px; padding:16px 18px; margin-bottom:14px;
-  font-size:14px; font-weight:400; color:rgba(255,255,255,.65); line-height:1.65;
-  position:relative; z-index:1;
-}
-
-/* answer key points */
-.key-points { display:flex; flex-direction:column; gap:8px; margin-top:10px; }
-.key-point { display:flex; align-items:flex-start; gap:10px; font-size:14px; font-weight:500; color:rgba(255,255,255,.75); line-height:1.45; }
-.kp-arrow { color:var(--lime); font-size:13px; min-width:16px; margin-top:2px; }
-
-/* ─── DOWNLOAD BUTTON ─── */
-.dl-btn {
-  width: 30px; height: 30px;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.06);
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: background 0.2s, border-color 0.2s, transform 0.15s;
-  margin-left: 8px;
-}
-.dl-btn:hover { background: rgba(200,245,100,0.15); border-color: var(--lime); transform: translateY(-1px); }
-.dl-btn:active { transform: scale(0.93); }
-.dl-btn svg { width: 13px; height: 13px; stroke: rgba(255,255,255,0.5); fill: none; stroke-width: 2; transition: stroke 0.2s; }
-.dl-btn:hover svg { stroke: var(--lime); }
-.face-a .dl-btn { border-color: rgba(200,245,100,0.2); }
-.face-a .dl-btn svg { stroke: rgba(200,245,100,0.5); }
-.face-a .dl-btn:hover { background: rgba(200,245,100,0.2); }
-.face-a .dl-btn:hover svg { stroke: var(--lime); }
-
-/* downloading state */
-.dl-btn.loading { pointer-events: none; opacity: 0.5; }
-.dl-btn.done svg { stroke: var(--lime); }
-
-@media(max-width:700px){
-  .hero-topbar,.hero-centre,.hero-strip{padding-left:20px;padding-right:20px;}
-  .hero-sub{font-size:16px;}
-  .section-header{padding:50px 20px 30px;flex-direction:column;align-items:flex-start;gap:0;}
-  .section-count{display:none;}
-  .cards-grid{grid-template-columns:1fr; gap:1px; padding:1px;}
-
-  /* ── card: let height be driven by content ── */
-  .flip-card {
-    height: auto;
-    /* tall enough to fit most content; user can scroll inside if needed */
-    min-height: 520px;
-  }
-  .flip-inner {
-    /* keep relative so absolute children fill it */
-    min-height: 520px;
-  }
-  .flip-face {
-    /* faces are still absolute (needed for 3D flip),
-       but now the card is tall enough + body scrolls */
-    overflow: visible; /* let card-body handle its own scroll */
-  }
-  .card-head {
-    padding: 20px 20px 16px;
-    position: sticky; top: 0; z-index: 5;
-    /* keep header always visible when scrolling */
-  }
-  .face-q .card-head { background: var(--ink); }
-  .face-a .card-head { background: #181714; }
-
-  .card-body {
-    padding: 24px 20px 28px;
-    justify-content: flex-start;
-    /* KEY FIX: scroll content that overflows */
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    /* cap height so it doesn't grow forever;
-       subtract card-head ~74px from card min-height */
-    max-height: calc(520px - 74px);
-  }
-  .q-text { font-size: 18px; max-width: 100%; }
-  .q-num { font-size: 160px; }
-  .answer-title { font-size: 38px; }
-
-  footer{flex-direction:column;gap:14px;padding:40px 24px;}
+@media(max-width:500px){
+  .pillars-grid { grid-template-columns: 1fr; }
+  .nav-strip-inner { grid-template-columns: 1fr; }
 }
 </style>
 </head>
-<body>
+<body class="page-body">
 
-<!-- HERO -->
+<!-- ═══ NAV ═══ -->
+<nav id="site-nav">
+  <div class="nav-brand">
+    <div class="nav-badge">EK</div>
+    <div class="nav-brand-text">EKSUMSA SCOME<span>Ekiti State University · Ado-Ekiti</span></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="medbites.html">Med Bites</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="workshops.html">Workshops</a></li>
+  </ul>
+  <div class="nav-socials">
+    <a href="https://x.com/i/status/2032176159362822282" target="_blank" title="Twitter / X">
+      <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.912-5.622z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/p/DVy85rdCA8X/?igsh=MXJ3NjY2MWo5M2Y3cg==" target="_blank" title="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>
+    <a href="https://vt.tiktok.com/ZSuUeLGCw/" target="_blank" title="TikTok">
+      <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.33a8.16 8.16 0 0 0 4.77 1.52V7.4a4.85 4.85 0 0 1-1-.71z"/></svg>
+    </a>
+  </div>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="nav-mobile-menu" id="mobile-menu">
+  <a href="index.html" class="active">Home</a>
+  <a href="medbites.html">Med Bites</a>
+  <a href="resources.html">Academic Resources</a>
+  <a href="research.html">Research</a>
+  <a href="workshops.html">Workshops & Outreach</a>
+  <div class="nav-mobile-socials">
+    <a href="https://x.com/i/status/2032176159362822282" target="_blank"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,.6)"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.912-5.622z"/></svg></a>
+    <a href="https://www.instagram.com/p/DVy85rdCA8X/?igsh=MXJ3NjY2MWo5M2Y3cg==" target="_blank"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,.6)"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+    <a href="https://vt.tiktok.com/ZSuUeLGCw/" target="_blank"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,.6)"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.33a8.16 8.16 0 0 0 4.77 1.52V7.4a4.85 4.85 0 0 1-1-.71z"/></svg></a>
+  </div>
+</div>
+
+<!-- ═══ HERO ═══ -->
 <section id="hero">
-  <div class="hero-bg-text">MB</div>
-  <div class="hero-topbar">
-    <div class="logo-group">
-      <div class="logo-badge">EK</div>
-      <div class="logo-text">EKSUMSA<span>Ekiti State Univ. Medical Students Assoc.</span></div>
+  <div class="hero-bg-word">SCOME</div>
+  <div class="hero-content">
+    <div class="hero-tag">EKSUMSA · Ekiti State University · Est. 2026 Board</div>
+    <h1 class="hero-title">Standing<br>Committee<br><em>on Medical</em><br>Education</h1>
+    <p class="hero-sub">"Advancing Medical Education, One Student at a Time."</p>
+    <div class="hero-ctas">
+      <a href="medbites.html" class="btn-pill primary">Explore Med Bites →</a>
+      <a href="resources.html" class="btn-pill outline">Academic Resources</a>
     </div>
-    <div class="scome-tag">
-      <div style="text-align:right">Standing Committee<br>on Medical Education</div>
-      <div class="scome-ring">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 9h8M8 12h8M8 15h5"/></svg>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">38</div>
+        <div class="hero-stat-label">Active IFMSA NMOs</div>
       </div>
-    </div>
-  </div>
-
-  <div class="hero-centre">
-    <div class="hero-eyebrow">SCOME Series · 2026</div>
-    <div class="hero-title">Med<br><em>Bites</em></div>
-    <p class="hero-sub">Bite-sized clinical questions to sharpen your reasoning — one flip at a time. Tap any card to reveal the answer.</p>
-    <div class="hero-subjects">
-      <a class="subj-pill" href="#biochemistry"><span class="num">01</span> Biochemistry</a>
-      <a class="subj-pill" href="#physiology"><span class="num">02</span> Physiology</a>
-      <a class="subj-pill" href="#anatomy"><span class="num">03</span> Anatomy</a>
-      <a class="subj-pill" href="#clinical-case"><span class="num">04</span> Clinical Case</a>
-      <a class="subj-pill" href="#clinical-case-b"><span class="num">05</span> Clinical Case B</a>
-      <a class="subj-pill" href="#microbiology"><span class="num">06</span> Microbiology</a>
-      <a class="subj-pill" href="#pharmacology"><span class="num">07</span> Pharmacology</a>
-      <a class="subj-pill" href="#pathology"><span class="num">08</span> Pathology</a>
-      <a class="subj-pill" href="#integrated-clinical"><span class="num">09</span> Integrated Clinical</a>
-    </div>
-  </div>
-
-  <div class="hero-strip">
-    <span class="hero-strip-text">EKSUMSA · SCOME · Med Bites</span>
-    <div class="scroll-cue">Scroll to begin
-      <svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      <div>
+        <div class="hero-stat-num">1951</div>
+        <div class="hero-stat-label">Year SCOME Founded</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">14</div>
+        <div class="hero-stat-label">Board Executives 2026</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">5</div>
+        <div class="hero-stat-label">Strategic Pillars</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- BIOCHEMISTRY -->
-<section class="subject-section" id="biochemistry">
-  <div class="section-header">
-    <div><div class="section-label">Section 01</div><div class="section-title">Biochemistry</div></div>
-    <div class="section-count">01</div>
-  </div>
-  <div class="cards-grid">
-    <div class="flip-card reveal" onclick="this.classList.toggle('flipped')">
-      <div class="flip-inner">
-        <div class="flip-face face-q">
-          <div class="card-head">
-            <span class="card-subj">Biochemistry · Q1</span>
-            <span class="card-flip-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to reveal</span>
-          </div>
-          <div class="card-body">
-            <div class="q-num">1</div>
-            <div class="q-badge">Question</div>
-            <p class="q-text">A child presents with muscle weakness and exercise intolerance due to inability to break down glycogen in muscle.<br><br>Which disease is this?</p>
-          </div>
-        </div>
-        <div class="flip-face face-a">
-          <div class="card-head">
-            <span class="card-subj" style="color:rgba(255,255,255,.35)">Biochemistry · Q1</span>
-            <span class="card-flip-hint a-back-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to go back</span>
-          </div>
-          <div class="card-body">
-            <div class="answer-label">Answer</div>
-            <div class="answer-title">McArdle Disease</div>
-            <div class="reason-divider"></div>
-            <div class="reason-label">Reason</div>
-            <div class="reasons">
-              <div class="reason-item"><div class="rbullet"></div>Deficiency of <strong>muscle glycogen phosphorylase</strong>.</div>
-              <div class="reason-item"><div class="rbullet"></div>Glycogen cannot convert to glucose-1-phosphate in muscle.</div>
-              <div class="reason-item"><div class="rbullet"></div>Leads to cramps and <strong>no rise in lactate</strong> after exercise.</div>
-            </div>
-            <div class="mnemonic">
-              <div class="mnemo-label">Mnemonic</div>
-              <div class="mnemo-text">"McArdle = Muscle can't mobilize glycogen"</div>
-            </div>
-          </div>
-        </div>
-      </div>
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+  <div class="about-grid reveal">
+    <div>
+      <div class="section-eyebrow" style="color:var(--green)">About SCOME</div>
+      <h2 class="section-title-xl dark" style="margin-bottom:28px;">What is<br>SCOME?</h2>
+      <p class="section-body-text dark" style="margin-bottom:20px;">
+        The <strong>Standing Committee on Medical Education (SCOME)</strong> is one of the oldest Standing Committees in IFMSA — the International Federation of Medical Students' Associations — established in <strong>1951</strong>.
+      </p>
+      <p class="section-body-text dark" style="margin-bottom:20px;">
+        EKSUMSA SCOME is the local chapter at <strong>Ekiti State University, Ado-Ekiti</strong>, committed to elevating the quality of medical education for every student in our institution and beyond.
+      </p>
+      <p class="section-body-text dark">
+        SCOME operates across <strong>38 IFMSA National Member Organizations</strong> worldwide, and 6 of 26 NMOs in Africa — we are proud to be part of that growing African voice.
+      </p>
     </div>
-    <!-- Q2 MCQ -->
-    <div class="flip-card reveal" onclick="this.classList.toggle('flipped')">
-      <div class="flip-inner">
-        <div class="flip-face face-q">
-          <div class="card-head">
-            <span class="card-subj">Biochemistry · Q2</span>
-            <span class="card-flip-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to reveal</span>
-          </div>
-          <div class="card-body">
-            <div class="q-num">2</div>
-            <div class="q-badge">MCQ</div>
-            <p class="q-text">The committed and rate-limiting step of glycolysis is catalyzed by:</p>
-            <div class="mcq-options">
-              <div class="mcq-opt"><span class="opt-letter">A</span>Hexokinase</div>
-              <div class="mcq-opt"><span class="opt-letter">B</span>Pyruvate kinase</div>
-              <div class="mcq-opt"><span class="opt-letter">C</span>Phosphofructokinase-1</div>
-              <div class="mcq-opt"><span class="opt-letter">D</span>Glucose-6-phosphatase</div>
-            </div>
-          </div>
-        </div>
-        <div class="flip-face face-a">
-          <div class="card-head">
-            <span class="card-subj" style="color:rgba(255,255,255,.35)">Biochemistry · Q2</span>
-            <span class="card-flip-hint a-back-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to go back</span>
-          </div>
-          <div class="card-body">
-            <div class="answer-label">Answer</div>
-            <div class="answer-title">C – PFK-1</div>
-            <div class="reason-divider"></div>
-            <div class="reason-label">Explanation</div>
-            <div class="reasons">
-              <div class="reason-item"><div class="rbullet"></div>PFK-1 catalyzes the conversion of <strong>fructose-6-phosphate → fructose-1,6-bisphosphate</strong>.</div>
-              <div class="reason-item"><div class="rbullet"></div>It is the committed and rate-limiting step of glycolysis.</div>
-              <div class="reason-item"><div class="rbullet"></div>Tightly regulated by ATP, AMP, and citrate levels.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <div class="about-num">SCOME</div>
   </div>
 </section>
 
-<!-- PHYSIOLOGY -->
-<section class="subject-section" id="physiology">
-  <div class="section-header">
-    <div><div class="section-label">Section 02</div><div class="section-title">Physiology</div></div>
-    <div class="section-count">02</div>
+<!-- ═══ VISION & MISSION ═══ -->
+<section id="vision-mission">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-eyebrow reveal">Our Foundation</div>
+    <h2 class="section-title-xl reveal" style="margin-bottom:8px;">Vision &<br>Mission</h2>
   </div>
-  <div class="cards-grid">
-
-    <!-- Q1 -->
-    <div class="flip-card reveal" onclick="this.classList.toggle('flipped')">
-      <div class="flip-inner">
-        <div class="flip-face face-q">
-          <div class="card-head">
-            <span class="card-subj">Physiology · Q1</span>
-            <span class="card-flip-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to reveal</span>
-          </div>
-          <div class="card-body">
-            <div class="q-num">1</div>
-            <div class="q-badge">Question</div>
-            <p class="q-text">A patient with severe hemorrhage develops tachycardia.<br><br>Which autonomic system is responsible?</p>
-          </div>
-        </div>
-        <div class="flip-face face-a">
-          <div class="card-head">
-            <span class="card-subj" style="color:rgba(255,255,255,.35)">Physiology · Q1</span>
-            <span class="card-flip-hint a-back-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to go back</span>
-          </div>
-          <div class="card-body">
-            <div class="answer-label">Answer</div>
-            <div class="answer-title">Sympathetic Nervous System</div>
-            <div class="reason-divider"></div>
-            <div class="reason-label">Reason</div>
-            <div class="reasons">
-              <div class="reason-item"><div class="rbullet"></div>Blood loss → decreased blood pressure.</div>
-              <div class="reason-item"><div class="rbullet"></div><strong>Baroreceptors</strong> detect the drop and trigger sympathetic activation.</div>
-              <div class="reason-item"><div class="rbullet"></div>Sympathetic stimulation increases heart rate and contractility to maintain perfusion.</div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="vm-grid reveal">
+    <div class="vm-card">
+      <div class="vm-card-label">Vision Statement</div>
+      <p class="vm-card-body">
+        Medical students are <strong>meaningfully engaged</strong> within their respective Medical Education Systems and represent student voice in issues regarding Medical Education as <strong>full-fledged stakeholders</strong> on all levels in order to create quality Medical Education worldwide and attain suitable competencies which will enable them to answer the healthcare needs of communities they have a mandate to serve.
+      </p>
     </div>
-
-    <!-- Q2 -->
-    <div class="flip-card reveal" onclick="this.classList.toggle('flipped')">
-      <div class="flip-inner">
-        <div class="flip-face face-q">
-          <div class="card-head">
-            <span class="card-subj">Physiology · Q2</span>
-            <span class="card-flip-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to reveal</span>
-          </div>
-          <div class="card-body">
-            <div class="q-num">2</div>
-            <div class="q-badge">Question</div>
-            <p class="q-text">A patient with severe vomiting develops metabolic alkalosis.<br><br>Why does vomiting cause alkalosis?</p>
-          </div>
-        </div>
-        <div class="flip-face face-a">
-          <div class="card-head">
-            <span class="card-subj" style="color:rgba(255,255,255,.35)">Physiology · Q2</span>
-            <span class="card-flip-hint a-back-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to go back</span>
-          </div>
-          <div class="card-body">
-            <div class="answer-label">Answer</div>
-            <div class="answer-title">Loss of HCl</div>
-            <div class="reason-divider"></div>
-            <div class="reason-label">Reason</div>
-            <div class="reasons">
-              <div class="reason-item"><div class="rbullet"></div>Gastric juice is rich in <strong>hydrochloric acid (HCl)</strong>.</div>
-              <div class="reason-item"><div class="rbullet"></div>Persistent vomiting removes H⁺ ions from the body.</div>
-              <div class="reason-item"><div class="rbullet"></div>Loss of H⁺ raises blood bicarbonate → metabolic alkalosis.</div>
-            </div>
-            <div class="mnemonic">
-              <div class="mnemo-label">Mnemonic</div>
-              <div class="mnemo-text">"Vomit → Lose Acid → Alkalosis."</div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="vm-card">
+      <div class="vm-card-label">Mission Statement</div>
+      <p class="vm-card-body">
+        SCOME is a platform that <strong>creates a shared environment</strong> where medical students contribute, reflect and work on the development of Medical Education through student-led activities. SCOME enables medical students to reach their full potential as Medical Education leaders through activities aimed at <strong>education, research, capacity development, meaningful youth engagement and advocacy</strong> in order to create effective impact on local, national, regional and international level.
+      </p>
     </div>
-
-    <!-- Q3 MCQ -->
-    <div class="flip-card reveal" onclick="this.classList.toggle('flipped')">
-      <div class="flip-inner">
-        <div class="flip-face face-q">
-          <div class="card-head">
-            <span class="card-subj">Physiology · Q3</span>
-            <span class="card-flip-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to reveal</span>
-          </div>
-          <div class="card-body">
-            <div class="q-num">3</div>
-            <div class="q-badge">MCQ</div>
-            <p class="q-text">Which of the following causes a <strong>rightward shift</strong> of the oxygen dissociation curve?</p>
-            <div class="mcq-options">
-              <div class="mcq-opt"><span class="opt-letter">A</span>Decreased CO₂</div>
-              <div class="mcq-opt"><span class="opt-letter">B</span>Increased pH</div>
-              <div class="mcq-opt"><span class="opt-letter">C</span>Decreased temperature</div>
-              <div class="mcq-opt"><span class="opt-letter">D</span>Increased 2,3-BPG</div>
-            </div>
-          </div>
-        </div>
-        <div class="flip-face face-a">
-          <div class="card-head">
-            <span class="card-subj" style="color:rgba(255,255,255,.35)">Physiology · Q3</span>
-            <span class="card-flip-hint a-back-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to go back</span>
-          </div>
-          <div class="card-body">
-            <div class="answer-label">Answer</div>
-            <div class="answer-title">D – Increased 2,3-BPG</div>
-            <div class="reason-divider"></div>
-            <div class="reason-label">Explanation</div>
-            <div class="reasons">
-              <div class="reason-item"><div class="rbullet"></div>Increased 2,3-BPG decreases haemoglobin's affinity for O₂, facilitating oxygen release to tissues.</div>
-              <div class="reason-item"><div class="rbullet"></div>Other causes of rightward shift: ↑CO₂, ↑temperature, ↓pH (Bohr effect).</div>
-              <div class="reason-item"><div class="rbullet"></div>Rightward shift = <strong>decreased O₂ affinity</strong> = more O₂ delivered to tissues.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- ANATOMY -->
-<section class="subject-section" id="anatomy">
-  <div class="section-header">
-    <div><div class="section-label">Section 03</div><div class="section-title">Anatomy</div></div>
-    <div class="section-count">03</div>
+<!-- ═══ STRATEGIC PILLARS ═══ -->
+<section id="pillars">
+  <div class="pillars-header reveal">
+    <div class="section-eyebrow" style="color:var(--green)">2026 Action Plan</div>
+    <h2 class="section-title-xl dark">Strategic<br>Pillars</h2>
   </div>
-  <div class="cards-grid">
-
-    <!-- Q1 -->
-    <div class="flip-card reveal" onclick="this.classList.toggle('flipped')">
-      <div class="flip-inner">
-        <div class="flip-face face-q">
-          <div class="card-head">
-            <span class="card-subj">Anatomy · Q1</span>
-            <span class="card-flip-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to reveal</span>
-          </div>
-          <div class="card-body">
-            <div class="q-num">1</div>
-            <div class="q-badge">Question</div>
-            <p class="q-text">A patient cannot extend the wrist, resulting in wrist drop after a mid-shaft humeral fracture.<br><br>Which nerve is injured?</p>
-          </div>
-        </div>
-        <div class="flip-face face-a">
-          <div class="card-head">
-            <span class="card-subj" style="color:rgba(255,255,255,.35)">Anatomy · Q1</span>
-            <span class="card-flip-hint a-back-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to go back</span>
-          </div>
-          <div class="card-body">
-            <div class="answer-label">Answer</div>
-            <div class="answer-title">The Radial Nerve</div>
-            <div class="reason-divider"></div>
-            <div class="reason-label">Reason</div>
-            <div class="reasons">
-              <div class="reason-item"><div class="rbullet"></div>Radial nerve runs in the <strong>radial groove of the humerus</strong>.</div>
-              <div class="reason-item"><div class="rbullet"></div>Supplies extensor muscles of the forearm.</div>
-              <div class="reason-item"><div class="rbullet"></div>Damage → loss of wrist/finger extension → wrist drop.</div>
-            </div>
-            <div class="mnemonic">
-              <div class="mnemo-label">Mnemonic</div>
-              <div class="mnemo-text">"Radial = Raise the wrist." — If wrist can't raise → radial nerve injury.</div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="pillars-grid">
+    <div class="pillar-card reveal">
+      <div class="pillar-num">I</div>
+      <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <div class="pillar-label">Pillar I</div>
+      <div class="pillar-title">Capacity Building & Skill Development</div>
     </div>
-
-    <!-- Q2 -->
-    <div class="flip-card reveal" onclick="this.classList.toggle('flipped')">
-      <div class="flip-inner">
-        <div class="flip-face face-q">
-          <div class="card-head">
-            <span class="card-subj">Anatomy · Q2</span>
-            <span class="card-flip-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to reveal</span>
-          </div>
-          <div class="card-body">
-            <div class="q-num">2</div>
-            <div class="q-badge">Question</div>
-            <p class="q-text">A patient presents with inability to abduct the arm beyond the first 15° after a shoulder injury.<br><br>Which nerve is most likely damaged?</p>
-          </div>
-        </div>
-        <div class="flip-face face-a">
-          <div class="card-head">
-            <span class="card-subj" style="color:rgba(255,255,255,.35)">Anatomy · Q2</span>
-            <span class="card-flip-hint a-back-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to go back</span>
-          </div>
-          <div class="card-body">
-            <div class="answer-label">Answer</div>
-            <div class="answer-title">The Axillary Nerve</div>
-            <div class="reason-divider"></div>
-            <div class="reason-label">Reason</div>
-            <div class="reasons">
-              <div class="reason-item"><div class="rbullet"></div><strong>Deltoid muscle</strong> abducts the arm from 15°–90°.</div>
-              <div class="reason-item"><div class="rbullet"></div>Innervated by the axillary nerve (C5–C6).</div>
-              <div class="reason-item"><div class="rbullet"></div>Injury often follows surgical neck fractures of the humerus.</div>
-            </div>
-            <div class="mnemonic">
-              <div class="mnemo-label">Mnemonic</div>
-              <div class="mnemo-text">"D for Deltoid, D for 90 Degrees." — Deltoid (Axillary) → abducts to 90°.</div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="pillar-card reveal">
+      <div class="pillar-num">II</div>
+      <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></div>
+      <div class="pillar-label">Pillar II</div>
+      <div class="pillar-title">Advocacy & Educational Reform</div>
     </div>
-
-    <!-- Q3 MCQ -->
-    <div class="flip-card reveal" onclick="this.classList.toggle('flipped')">
-      <div class="flip-inner">
-        <div class="flip-face face-q">
-          <div class="card-head">
-            <span class="card-subj">Anatomy · Q3</span>
-            <span class="card-flip-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to reveal</span>
-          </div>
-          <div class="card-body">
-            <div class="q-num">3</div>
-            <div class="q-badge">MCQ</div>
-            <p class="q-text">Injury to the surgical neck of the humerus affects which nerve?</p>
-            <div class="mcq-options">
-              <div class="mcq-opt"><span class="opt-letter">A</span>Radial nerve</div>
-              <div class="mcq-opt"><span class="opt-letter">B</span>Axillary nerve</div>
-              <div class="mcq-opt"><span class="opt-letter">C</span>Musculocutaneous nerve</div>
-              <div class="mcq-opt"><span class="opt-letter">D</span>Suprascapular nerve</div>
-            </div>
-          </div>
-        </div>
-        <div class="flip-face face-a">
-          <div class="card-head">
-            <span class="card-subj" style="color:rgba(255,255,255,.35)">Anatomy · Q3</span>
-            <span class="card-flip-hint a-back-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to go back</span>
-          </div>
-          <div class="card-body">
-            <div class="answer-label">Answer</div>
-            <div class="answer-title">B – Axillary Nerve</div>
-            <div class="reason-divider"></div>
-            <div class="reason-label">Explanation</div>
-            <div class="reasons">
-              <div class="reason-item"><div class="rbullet"></div>Surgical neck fracture → <strong>deltoid paralysis</strong> → loss of shoulder abduction.</div>
-              <div class="reason-item"><div class="rbullet"></div>The axillary nerve (C5–C6) wraps around the surgical neck of the humerus.</div>
-              <div class="reason-item"><div class="rbullet"></div>Sensory loss over the <strong>regimental badge area</strong> of the shoulder.</div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="pillar-card reveal">
+      <div class="pillar-num">III</div>
+      <div class="pillar-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <div class="pillar-label">Pillar III</div>
+      <div class="pillar-title">Digital Innovation & Resource Accessibility</div>
     </div>
-
-    <!-- Q4 MCQ -->
-    <div class="flip-card reveal" onclick="this.classList.toggle('flipped')">
-      <div class="flip-inner">
-        <div class="flip-face face-q">
-          <div class="card-head">
-            <span class="card-subj">Anatomy · Q4</span>
-            <span class="card-flip-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to reveal</span>
-          </div>
-          <div class="card-body">
-            <div class="q-num">4</div>
-            <div class="q-badge">MCQ</div>
-            <p class="q-text">A 70-year-old woman sustains a fracture of the neck of femur. Months later she develops avascular necrosis of the femoral head. The most likely damaged artery is:</p>
-            <div class="mcq-options">
-              <div class="mcq-opt"><span class="opt-letter">A</span>Obturator artery</div>
-              <div class="mcq-opt"><span class="opt-letter">B</span>Lateral circumflex femoral artery</div>
-              <div class="mcq-opt"><span class="opt-letter">C</span>Medial circumflex femoral artery</div>
-              <div class="mcq-opt"><span class="opt-letter">D</span>Inferior gluteal artery</div>
-            </div>
-          </div>
-        </div>
-        <div class="flip-face face-a">
-          <div class="card-head">
-            <span class="card-subj" style="color:rgba(255,255,255,.35)">Anatomy · Q4</span>
-            <span class="card-flip-hint a-back-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to go back</span>
-          </div>
-          <div class="card-body">
-            <div class="answer-label">Answer</div>
-            <div class="answer-title">C – Medial Circumflex Femoral</div>
-            <div class="reason-divider"></div>
-            <div class="reason-label">Explanation</div>
-            <div class="reasons">
-              <div class="reason-item"><div class="rbullet"></div>The <strong>medial circumflex femoral artery</strong> is the primary blood supply to the femoral head.</div>
-              <div class="reason-item"><div class="rbullet"></div>Disruption during neck of femur fracture → ischaemia → avascular necrosis.</div>
-              <div class="reason-item"><div class="rbullet"></div>This is why femoral neck fractures carry a high risk of AVN.</div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="pillar-card reveal">
+      <div class="pillar-num">IV</div>
+      <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="pillar-label">Pillar IV</div>
+      <div class="pillar-title">Mentorship & Career Development</div>
     </div>
-
+    <div class="pillar-card reveal">
+      <div class="pillar-num">V</div>
+      <div class="pillar-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+      <div class="pillar-label">Pillar V</div>
+      <div class="pillar-title">Visibility, Engagement & Sustainability</div>
+    </div>
   </div>
 </section>
 
-
-<!-- CLINICAL CASE -->
-<section class="subject-section" id="clinical-case">
-  <div class="section-header">
-    <div><div class="section-label">Section 04</div><div class="section-title">Clinical Case</div></div>
-    <div class="section-count">04</div>
+<!-- ═══ BOARD OF EXECUTIVES ═══ -->
+<section id="board">
+  <div class="board-header">
+    <div class="section-eyebrow reveal">EKSUMSA SCOME</div>
+    <h2 class="section-title-xl reveal" style="margin-bottom:8px;">Board of<br>Executives 2026</h2>
   </div>
-  <div class="cards-grid">
-
-    <!-- Q1 -->
-    <div class="flip-card reveal" onclick="this.classList.toggle('flipped')">
-      <div class="flip-inner">
-        <div class="flip-face face-q">
-          <div class="card-head">
-            <span class="card-subj">Clinical Case · Q1</span>
-            <span class="card-flip-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to reveal</span>
-          </div>
-          <div class="card-body">
-            <div class="q-num">1</div>
-            <div class="q-badge">Clinical</div>
-            <p class="q-text">A 55-year-old man presents with polyuria, polydipsia, and unexplained weight loss. His random plasma glucose is 14 mmol/L.<br><br>What confirms the diagnosis?</p>
-          </div>
-        </div>
-        <div class="flip-face face-a">
-          <div class="card-head">
-            <span class="card-subj" style="color:rgba(255,255,255,.35)">Clinical Case · Q1</span>
-            <span class="card-flip-hint a-back-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to go back</span>
-          </div>
-          <div class="card-body">
-            <div class="answer-label">Answer</div>
-            <div class="answer-title">Diabetes Mellitus</div>
-            <div class="reason-divider"></div>
-            <div class="reason-label">Diagnostic Criteria — Mnemonic: "DRIP"</div>
-            <div class="reasons">
-              <div class="reason-item"><div class="rbullet"></div><strong>D</strong> – Diabetes symptoms (polyuria, polydipsia, weight loss)</div>
-              <div class="reason-item"><div class="rbullet"></div><strong>R</strong> – Random glucose ≥ 11.1 mmol/L</div>
-              <div class="reason-item"><div class="rbullet"></div><strong>I</strong> – Impaired fasting glucose ≥ 7.0 mmol/L</div>
-              <div class="reason-item"><div class="rbullet"></div><strong>P</strong> – Post OGTT ≥ 11.1 mmol/L</div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="board-table reveal">
+    <div class="board-row header">
+      <div class="board-cell">#</div>
+      <div class="board-cell">Role</div>
+      <div class="board-cell">Officer</div>
     </div>
-
-    <!-- Q2 -->
-    <div class="flip-card reveal" onclick="this.classList.toggle('flipped')">
-      <div class="flip-inner">
-        <div class="flip-face face-q">
-          <div class="card-head">
-            <span class="card-subj">Clinical Case · Q2</span>
-            <span class="card-flip-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to reveal</span>
-          </div>
-          <div class="card-body">
-            <div class="q-num">2</div>
-            <div class="q-badge">Clinical</div>
-            <p class="q-text">A 19-year-old male presents with abdominal pain that started around the umbilicus and migrated to the right iliac fossa. He also has fever and nausea.<br><br>What is the most likely diagnosis?</p>
-          </div>
-        </div>
-        <div class="flip-face face-a">
-          <div class="card-head">
-            <span class="card-subj" style="color:rgba(255,255,255,.35)">Clinical Case · Q2</span>
-            <span class="card-flip-hint a-back-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to go back</span>
-          </div>
-          <div class="card-body">
-            <div class="answer-label">Answer</div>
-            <div class="answer-title">Acute Appendicitis</div>
-            <div class="reason-divider"></div>
-            <div class="reason-label">Classic Features — Mnemonic: "MANTRELS"</div>
-            <div class="reasons">
-              <div class="reason-item"><div class="rbullet"></div><strong>M</strong> – Migration of pain &nbsp;<strong>A</strong> – Anorexia &nbsp;<strong>N</strong> – Nausea/Vomiting</div>
-              <div class="reason-item"><div class="rbullet"></div><strong>T</strong> – Tenderness (RIF) &nbsp;<strong>R</strong> – Rebound tenderness</div>
-              <div class="reason-item"><div class="rbullet"></div><strong>E</strong> – Elevated temperature &nbsp;<strong>L</strong> – Leukocytosis &nbsp;<strong>S</strong> – Shift to left</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <div class="board-row"><div class="board-cell num">1</div><div class="board-cell role">Liaison Officer</div><div class="board-cell">Akinyemi Success Emmanuel</div></div>
+    <div class="board-row"><div class="board-cell num">2</div><div class="board-cell role">Deputy Local Officer I</div><div class="board-cell">Oluwamuyiwa Emmanuel Ayomikun</div></div>
+    <div class="board-row"><div class="board-cell num">3</div><div class="board-cell role">Deputy Local Officer II</div><div class="board-cell">Abdurrazzaq Sumayyah</div></div>
+    <div class="board-row"><div class="board-cell num">4</div><div class="board-cell role">General Secretary</div><div class="board-cell">Ojuko Ganiyu Ayomide</div></div>
+    <div class="board-row"><div class="board-cell num">5</div><div class="board-cell role">Assistant General Secretary</div><div class="board-cell">Ojelabi-Pedro God'swill Goodness</div></div>
+    <div class="board-row"><div class="board-cell num">6</div><div class="board-cell role">Financial Secretary</div><div class="board-cell">Ogundola Olayinka Grace</div></div>
+    <div class="board-row"><div class="board-cell num">7</div><div class="board-cell role">Director of Academics & Research</div><div class="board-cell">Abiona Ayomide Suleiman</div></div>
+    <div class="board-row"><div class="board-cell num">8</div><div class="board-cell role">Director of Advocacy & Feedback</div><div class="board-cell">Adewale Emmanuel Iseoluwa</div></div>
+    <div class="board-row"><div class="board-cell num">9</div><div class="board-cell role">Director of Publicity & Information</div><div class="board-cell">Akintade Adedurodemi Obalola</div></div>
+    <div class="board-row"><div class="board-cell num">10</div><div class="board-cell role">Directorate of Publicity & Info. II</div><div class="board-cell">Ibrahim Abdulsamad Olamide</div></div>
+    <div class="board-row"><div class="board-cell num">11</div><div class="board-cell role">Director of Documentation</div><div class="board-cell">Ajayi Grace Motunrayo</div></div>
+    <div class="board-row"><div class="board-cell num">12</div><div class="board-cell role">Programs Coordinator I</div><div class="board-cell">Adako Precious</div></div>
+    <div class="board-row"><div class="board-cell num">13</div><div class="board-cell role">Programs Coordinator II</div><div class="board-cell">Daramola Peter Segun</div></div>
+    <div class="board-row"><div class="board-cell num">14</div><div class="board-cell role">Director of Graphics</div><div class="board-cell">Lucas Adebayo Gloria</div></div>
   </div>
 </section>
 
-
-<!-- CLINICAL CASE B -->
-<section class="subject-section" id="clinical-case-b">
-  <div class="section-header">
-    <div><div class="section-label">Section 05</div><div class="section-title">Clinical Case B</div></div>
-    <div class="section-count">05</div>
+<!-- ═══ EXPLORE THE SITE ═══ -->
+<section id="nav-strip">
+  <div style="max-width:1200px;margin:0 auto 40px;">
+    <div class="section-eyebrow" style="color:var(--green)">Explore</div>
+    <h2 class="section-title-xl dark">What we offer</h2>
   </div>
-  <div class="cards-grid">
-
-    <!-- Q1 -->
-    <div class="flip-card reveal" onclick="this.classList.toggle('flipped')">
-      <div class="flip-inner">
-        <div class="flip-face face-q">
-          <div class="card-head">
-            <span class="card-subj">Clinical Case B · Q1</span>
-            <span class="card-flip-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to reveal</span>
-          </div>
-          <div class="card-body">
-            <div class="q-num">1</div>
-            <div class="q-badge">Clinical</div>
-            <p class="q-text">A 45-year-old man presents with sharp pain radiating from the lower back down the posterior thigh to the leg and foot. The pain worsens when sitting or bending forward.<br><br>Which nerve is most likely affected?</p>
-          </div>
-        </div>
-        <div class="flip-face face-a">
-          <div class="card-head">
-            <span class="card-subj" style="color:rgba(255,255,255,.35)">Clinical Case B · Q1</span>
-            <span class="card-flip-hint a-back-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to go back</span>
-          </div>
-          <div class="card-body">
-            <div class="answer-label">Answer</div>
-            <div class="answer-title">Sciatic Nerve</div>
-            <div class="reason-divider"></div>
-            <div class="reason-label">Key Components — Mnemonic: "TIP"</div>
-            <div class="reasons">
-              <div class="reason-item"><div class="rbullet"></div><strong>T</strong> – Tibial nerve</div>
-              <div class="reason-item"><div class="rbullet"></div><strong>I</strong> – Innervates posterior thigh muscles</div>
-              <div class="reason-item"><div class="rbullet"></div><strong>P</strong> – Common Peroneal (fibular) nerve</div>
-            </div>
-            <div class="mnemonic">
-              <div class="mnemo-label">Note</div>
-              <div class="mnemo-text">Largest nerve in the body — arises from L4–S3.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Q2 -->
-    <div class="flip-card reveal" onclick="this.classList.toggle('flipped')">
-      <div class="flip-inner">
-        <div class="flip-face face-q">
-          <div class="card-head">
-            <span class="card-subj">Clinical Case B · Q2</span>
-            <span class="card-flip-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to reveal</span>
-          </div>
-          <div class="card-body">
-            <div class="q-num">2</div>
-            <div class="q-badge">Clinical</div>
-            <p class="q-text">A 12-year-old boy presents with recurrent episodes of sudden jerking movements and loss of awareness lasting a few seconds.<br><br>What is the basic physiological mechanism behind epilepsy?</p>
-          </div>
-        </div>
-        <div class="flip-face face-a">
-          <div class="card-head">
-            <span class="card-subj" style="color:rgba(255,255,255,.35)">Clinical Case B · Q2</span>
-            <span class="card-flip-hint a-back-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to go back</span>
-          </div>
-          <div class="card-body">
-            <div class="answer-label">Answer</div>
-            <div class="answer-title">Abnormal Neuronal Discharge</div>
-            <div class="reason-divider"></div>
-            <div class="reason-label">Key Neurotransmitter — Mnemonic: "GI"</div>
-            <div class="reasons">
-              <div class="reason-item"><div class="rbullet"></div><strong>G</strong> – ↓ GABA (inhibitory neurotransmitter)</div>
-              <div class="reason-item"><div class="rbullet"></div><strong>I</strong> – ↑ Glutamate excitation</div>
-              <div class="reason-item"><div class="rbullet"></div>Epilepsy: excitatory activity exceeds inhibitory control in neuronal networks.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Q3 -->
-    <div class="flip-card reveal" onclick="this.classList.toggle('flipped')">
-      <div class="flip-inner">
-        <div class="flip-face face-q">
-          <div class="card-head">
-            <span class="card-subj">Clinical Case B · Q3</span>
-            <span class="card-flip-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to reveal</span>
-          </div>
-          <div class="card-body">
-            <div class="q-num">3</div>
-            <div class="q-badge">Embryology</div>
-            <p class="q-text">A fetus is diagnosed on ultrasound with absence of the cranial vault and major portions of the brain.<br><br>What embryological defect causes this condition?</p>
-          </div>
-        </div>
-        <div class="flip-face face-a">
-          <div class="card-head">
-            <span class="card-subj" style="color:rgba(255,255,255,.35)">Clinical Case B · Q3</span>
-            <span class="card-flip-hint a-back-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to go back</span>
-          </div>
-          <div class="card-body">
-            <div class="answer-label">Answer</div>
-            <div class="answer-title">Anterior Neuropore Failure</div>
-            <div class="reason-divider"></div>
-            <div class="reason-label">Mnemonic: "FAN"</div>
-            <div class="reasons">
-              <div class="reason-item"><div class="rbullet"></div><strong>F</strong> – Failure of closure</div>
-              <div class="reason-item"><div class="rbullet"></div><strong>A</strong> – Anterior neuropore</div>
-              <div class="reason-item"><div class="rbullet"></div><strong>N</strong> – Neural tube closure</div>
-            </div>
-            <div class="mnemonic">
-              <div class="mnemo-label">Note</div>
-              <div class="mnemo-text">Anencephaly occurs around day 25 of embryonic development.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+  <div class="nav-strip-inner">
+    <a href="medbites.html" class="nav-strip-card reveal">
+      <div class="nav-strip-num">01</div>
+      <div class="nav-strip-icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+      <div class="nav-strip-title">Med Bites</div>
+      <div class="nav-strip-desc">Flip-card clinical questions across 9 subjects. Test your knowledge anytime.</div>
+      <div class="nav-strip-arrow">→</div>
+    </a>
+    <a href="resources.html" class="nav-strip-card reveal">
+      <div class="nav-strip-num">02</div>
+      <div class="nav-strip-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+      <div class="nav-strip-title">Academic Resources</div>
+      <div class="nav-strip-desc">Notes, past questions, and study materials organized by year level.</div>
+      <div class="nav-strip-arrow">→</div>
+    </a>
+    <a href="research.html" class="nav-strip-card reveal">
+      <div class="nav-strip-num">03</div>
+      <div class="nav-strip-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+      <div class="nav-strip-title">Research</div>
+      <div class="nav-strip-desc">Medical education findings, verdicts, and curated research links.</div>
+      <div class="nav-strip-arrow">→</div>
+    </a>
+    <a href="workshops.html" class="nav-strip-card reveal">
+      <div class="nav-strip-num">04</div>
+      <div class="nav-strip-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="nav-strip-title">Workshops & Outreach</div>
+      <div class="nav-strip-desc">Upcoming events, outreach programs, and capacity-building activities.</div>
+      <div class="nav-strip-arrow">→</div>
+    </a>
   </div>
 </section>
 
-
-<!-- MICROBIOLOGY -->
-<section class="subject-section" id="microbiology">
-  <div class="section-header">
-    <div><div class="section-label">Section 06</div><div class="section-title">Microbiology</div></div>
-    <div class="section-count">06</div>
-  </div>
-  <div class="cards-grid">
-
-    <!-- Q1 MCQ -->
-    <div class="flip-card reveal" onclick="this.classList.toggle('flipped')">
-      <div class="flip-inner">
-        <div class="flip-face face-q">
-          <div class="card-head">
-            <span class="card-subj">Microbiology · Q1</span>
-            <span class="card-flip-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to reveal</span>
-          </div>
-          <div class="card-body">
-            <div class="q-num">1</div>
-            <div class="q-badge">MCQ</div>
-            <p class="q-text">A urine culture from a young sexually active female grows lactose-fermenting Gram-negative rods. Most likely organism?</p>
-            <div class="mcq-options">
-              <div class="mcq-opt"><span class="opt-letter">A</span>Proteus</div>
-              <div class="mcq-opt"><span class="opt-letter">B</span>Klebsiella</div>
-              <div class="mcq-opt"><span class="opt-letter">C</span>E. coli</div>
-              <div class="mcq-opt"><span class="opt-letter">D</span>Pseudomonas</div>
-            </div>
-          </div>
-        </div>
-        <div class="flip-face face-a">
-          <div class="card-head">
-            <span class="card-subj" style="color:rgba(255,255,255,.35)">Microbiology · Q1</span>
-            <span class="card-flip-hint a-back-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to go back</span>
-          </div>
-          <div class="card-body">
-            <div class="answer-label">Answer</div>
-            <div class="answer-title">C – E. coli</div>
-            <div class="reason-divider"></div>
-            <div class="reason-label">Explanation</div>
-            <div class="reasons">
-              <div class="reason-item"><div class="rbullet"></div><em>Escherichia coli</em> is a lactose-fermenting, Gram-negative bacillus.</div>
-              <div class="reason-item"><div class="rbullet"></div>Most common cause of <strong>community-acquired UTIs</strong>.</div>
-              <div class="reason-item"><div class="rbullet"></div>Virulence factor: <strong>P fimbriae</strong> — facilitates adherence to uroepithelium.</div>
-            </div>
-          </div>
-        </div>
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-big">EKSUMSA<br>SCOME</div>
+      <p class="footer-tagline">"Advancing Medical Education,<br>One Student at a Time."</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="medbites.html">Med Bites</a>
+        <a href="resources.html">Academic Resources</a>
+        <a href="research.html">Research</a>
+        <a href="workshops.html">Workshops & Outreach</a>
       </div>
     </div>
-
-  </div>
-</section>
-
-
-<!-- PHARMACOLOGY -->
-<section class="subject-section" id="pharmacology">
-  <div class="section-header">
-    <div><div class="section-label">Section 07</div><div class="section-title">Pharmacology</div></div>
-    <div class="section-count">07</div>
-  </div>
-  <div class="cards-grid">
-
-    <!-- Q1 MCQ -->
-    <div class="flip-card reveal" onclick="this.classList.toggle('flipped')">
-      <div class="flip-inner">
-        <div class="flip-face face-q">
-          <div class="card-head">
-            <span class="card-subj">Pharmacology · Q1</span>
-            <span class="card-flip-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to reveal</span>
-          </div>
-          <div class="card-body">
-            <div class="q-num">1</div>
-            <div class="q-badge">MCQ</div>
-            <p class="q-text">The immediate drug of choice in anaphylactic shock is:</p>
-            <div class="mcq-options">
-              <div class="mcq-opt"><span class="opt-letter">A</span>Hydrocortisone</div>
-              <div class="mcq-opt"><span class="opt-letter">B</span>Adrenaline IM</div>
-              <div class="mcq-opt"><span class="opt-letter">C</span>Salbutamol</div>
-              <div class="mcq-opt"><span class="opt-letter">D</span>Diphenhydramine</div>
-            </div>
-          </div>
-        </div>
-        <div class="flip-face face-a">
-          <div class="card-head">
-            <span class="card-subj" style="color:rgba(255,255,255,.35)">Pharmacology · Q1</span>
-            <span class="card-flip-hint a-back-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to go back</span>
-          </div>
-          <div class="card-body">
-            <div class="answer-label">Answer</div>
-            <div class="answer-title">B – Adrenaline IM</div>
-            <div class="reason-divider"></div>
-            <div class="reason-label">Mechanism</div>
-            <div class="reasons">
-              <div class="reason-item"><div class="rbullet"></div><strong>α₁ receptors</strong> → reverses hypotension (vasoconstriction).</div>
-              <div class="reason-item"><div class="rbullet"></div><strong>β₁ receptors</strong> → increases cardiac output.</div>
-              <div class="reason-item"><div class="rbullet"></div><strong>β₂ receptors</strong> → relieves bronchospasm.</div>
-              <div class="reason-item"><div class="rbullet"></div>IM route ensures <strong>rapid absorption</strong> — vastus lateralis preferred.</div>
-            </div>
-          </div>
-        </div>
+    <div>
+      <div class="footer-col-title">Connect with us</div>
+      <div class="footer-socials-row" style="margin-bottom:20px;">
+        <a href="https://x.com/i/status/2032176159362822282" target="_blank" title="Twitter / X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.912-5.622z"/></svg></a>
+        <a href="https://www.instagram.com/p/DVy85rdCA8X/?igsh=MXJ3NjY2MWo5M2Y3cg==" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="https://vt.tiktok.com/ZSuUeLGCw/" target="_blank" title="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.33a8.16 8.16 0 0 0 4.77 1.52V7.4a4.85 4.85 0 0 1-1-.71z"/></svg></a>
       </div>
+      <p style="font-size:13px;color:rgba(255,255,255,.35);line-height:1.6;">Ekiti State University<br>Ado-Ekiti, Ekiti State, Nigeria</p>
     </div>
-
   </div>
-</section>
-
-
-<!-- PATHOLOGY -->
-<section class="subject-section" id="pathology">
-  <div class="section-header">
-    <div><div class="section-label">Section 08</div><div class="section-title">Pathology</div></div>
-    <div class="section-count">08</div>
+  <div class="footer-bottom">
+    <span>© 2026 EKSUMSA SCOME — All rights reserved</span>
+    <span>IFMSA · Medical Students Worldwide</span>
   </div>
-  <div class="cards-grid">
-
-    <!-- Q1 MCQ -->
-    <div class="flip-card reveal" onclick="this.classList.toggle('flipped')">
-      <div class="flip-inner">
-        <div class="flip-face face-q">
-          <div class="card-head">
-            <span class="card-subj">Pathology · Q1</span>
-            <span class="card-flip-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to reveal</span>
-          </div>
-          <div class="card-body">
-            <div class="q-num">1</div>
-            <div class="q-badge">MCQ</div>
-            <p class="q-text">Virchow's triad includes all of the following EXCEPT:</p>
-            <div class="mcq-options">
-              <div class="mcq-opt"><span class="opt-letter">A</span>Hypercoagulability</div>
-              <div class="mcq-opt"><span class="opt-letter">B</span>Endothelial injury</div>
-              <div class="mcq-opt"><span class="opt-letter">C</span>Stasis</div>
-              <div class="mcq-opt"><span class="opt-letter">D</span>Thrombocytopenia</div>
-            </div>
-          </div>
-        </div>
-        <div class="flip-face face-a">
-          <div class="card-head">
-            <span class="card-subj" style="color:rgba(255,255,255,.35)">Pathology · Q1</span>
-            <span class="card-flip-hint a-back-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to go back</span>
-          </div>
-          <div class="card-body">
-            <div class="answer-label">Answer</div>
-            <div class="answer-title">D – Thrombocytopenia</div>
-            <div class="reason-divider"></div>
-            <div class="reason-label">Explanation</div>
-            <div class="reasons">
-              <div class="reason-item"><div class="rbullet"></div>Virchow's triad: <strong>Endothelial injury, Stasis, Hypercoagulability</strong>.</div>
-              <div class="reason-item"><div class="rbullet"></div>These are the three primary factors predisposing to thrombosis.</div>
-              <div class="reason-item"><div class="rbullet"></div>Thrombocytopenia does <strong>not</strong> promote thrombosis — it leads to bleeding instead.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- INTEGRATED CLINICAL -->
-<section class="subject-section" id="integrated-clinical">
-  <div class="section-header">
-    <div><div class="section-label">Section 09</div><div class="section-title">Integrated Clinical</div></div>
-    <div class="section-count">09</div>
-  </div>
-  <div class="cards-grid">
-
-    <!-- Q1 Long Case -->
-    <div class="flip-card reveal" onclick="this.classList.toggle('flipped')" style="height:auto;min-height:580px;">
-      <div class="flip-inner" style="min-height:580px;">
-        <div class="flip-face face-q">
-          <div class="card-head">
-            <span class="card-subj">Integrated Clinical · Q1</span>
-            <span class="card-flip-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to reveal</span>
-          </div>
-          <div class="card-body" style="justify-content:flex-start;padding-top:24px;">
-            <div class="q-badge">Long Case</div>
-            <div class="case-scenario" style="margin-top:14px;">
-              A 55-year-old man presents to the emergency department with a 2-hour history of severe crushing retrosternal chest pain radiating to his left arm and jaw. The pain began suddenly while resting and is associated with diaphoresis, nausea, and shortness of breath.<br><br>
-              He has a history of hypertension and hyperlipidaemia. Pulse rate is 108 bpm, BP is 145/90 mmHg. ECG shows ST-segment elevation in leads II, III, and aVF.
-            </div>
-            <p class="q-text" style="font-size:18px;margin-bottom:14px;">What is the most likely diagnosis?</p>
-            <div class="mcq-options">
-              <div class="mcq-opt"><span class="opt-letter">A</span>Stable angina</div>
-              <div class="mcq-opt"><span class="opt-letter">B</span>Pulmonary embolism</div>
-              <div class="mcq-opt"><span class="opt-letter">C</span>Myocardial infarction</div>
-              <div class="mcq-opt"><span class="opt-letter">D</span>Aortic dissection</div>
-            </div>
-          </div>
-        </div>
-        <div class="flip-face face-a">
-          <div class="card-head">
-            <span class="card-subj" style="color:rgba(255,255,255,.35)">Integrated Clinical · Q1</span>
-            <span class="card-flip-hint a-back-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M4 9a9 9 0 0 1 15.6-4.6M20 15a9 9 0 0 1-15.6 4.6"/></svg>Tap to go back</span>
-          </div>
-          <div class="card-body" style="justify-content:flex-start;padding-top:24px;">
-            <div class="answer-label">Answer</div>
-            <div class="answer-title">C – Myocardial Infarction</div>
-            <div class="reason-divider"></div>
-            <div class="reason-label">Clinical Reasoning</div>
-            <div class="key-points">
-              <div class="key-point"><span class="kp-arrow">→</span>Crushing chest pain radiating to left arm/jaw = <strong>classic ischaemic cardiac pain</strong></div>
-              <div class="key-point"><span class="kp-arrow">→</span>Onset at rest = suggests <strong>complete coronary occlusion</strong></div>
-              <div class="key-point"><span class="kp-arrow">→</span>Diaphoresis + nausea = <strong>autonomic activation</strong> seen in MI</div>
-              <div class="key-point"><span class="kp-arrow">→</span>ST elevation in II, III, aVF = <strong>inferior STEMI</strong> (RCA territory)</div>
-            </div>
-            <div class="mnemonic" style="margin-top:20px;">
-              <div class="mnemo-label">Risk Factors Present</div>
-              <div class="mnemo-text">Hypertension + hyperlipidaemia → atherosclerosis → plaque rupture → MI.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-brand">MED BITES</div>
-  <div class="footer-copy">EKSUMSA · SCOME · Medical Education Series</div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
-/* ── scroll reveal ── */
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in-view'); obs.unobserve(e.target); } });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-/* ── smooth nav ── */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    const t = document.querySelector(a.getAttribute('href'));
-    if(t) t.scrollIntoView({ behavior:'smooth', block:'start' });
-  });
-});
-
-/* ── inject download buttons into every card-head ── */
-const dlIcon = `<svg viewBox="0 0 24 24" stroke-width="2" fill="none">
-  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-  <polyline points="7 10 12 15 17 10"/>
-  <line x1="12" y1="15" x2="12" y2="3"/>
-</svg>`;
-const spinIcon = `<svg viewBox="0 0 24 24" stroke-width="2" fill="none" style="animation:spin .8s linear infinite">
-  <circle cx="12" cy="12" r="9" stroke-dasharray="40" stroke-dashoffset="10"/>
-</svg>`;
-const checkIcon = `<svg viewBox="0 0 24 24" stroke-width="2.5" fill="none"><polyline points="20 6 9 17 4 12"/></svg>`;
-
-document.querySelectorAll('.card-head').forEach(head => {
-  const btn = document.createElement('button');
-  btn.className = 'dl-btn';
-  btn.title = 'Download as image';
-  btn.innerHTML = dlIcon;
-  btn.addEventListener('click', e => {
-    e.stopPropagation();
-    dlFace(btn);
-  });
-  head.appendChild(btn);
-});
-
-/* ── download function ── */
-async function dlFace(btn) {
-  const face = btn.closest('.flip-face');
-  if (!face) return;
-
-  /* loading state */
-  btn.classList.add('loading');
-  btn.innerHTML = spinIcon;
-
-  /* build filename */
-  const subjText = face.querySelector('.card-subj')?.textContent?.trim() || 'medbite';
-  const side = face.classList.contains('face-q') ? 'question' : 'answer';
-  const filename = 'medbites_' + subjText.toLowerCase().replace(/[^a-z0-9]+/g,'_') + '_' + side + '.png';
-
-  /* clone face into a fixed off-screen container */
-  const W = 900, H = 560;
-  const wrapper = document.createElement('div');
-  wrapper.style.cssText = `
-    position:fixed; top:-9999px; left:-9999px;
-    width:${W}px; height:${H}px;
-    overflow:hidden; z-index:-100;
-    font-family:'Outfit',sans-serif;
-    background:${face.classList.contains('face-q') ? '#0d0d0b' : '#181714'};
-  `;
-
-  const clone = face.cloneNode(true);
-  clone.style.cssText = `
-    position:relative; width:${W}px; height:${H}px;
-    transform:none !important;
-    backface-visibility:visible !important;
-    -webkit-backface-visibility:visible !important;
-    overflow:hidden;
-    display:flex; flex-direction:column;
-  `;
-  /* remove download buttons from clone */
-  clone.querySelectorAll('.dl-btn').forEach(b => b.remove());
-  /* remove scrollable overflow so full content shows */
-  clone.querySelectorAll('.card-body').forEach(cb => {
-    cb.style.overflow = 'visible';
-    cb.style.maxHeight = 'none';
-  });
-
-  wrapper.appendChild(clone);
-  document.body.appendChild(wrapper);
-
-  try {
-    const canvas = await html2canvas(wrapper, {
-      scale: 2,
-      useCORS: true,
-      allowTaint: true,
-      backgroundColor: null,
-      width: W,
-      height: H,
-      windowWidth: W,
-      windowHeight: H,
-      logging: false,
-    });
-    const link = document.createElement('a');
-    link.download = filename;
-    link.href = canvas.toDataURL('image/png');
-    link.click();
-
-    /* success state */
-    btn.innerHTML = checkIcon;
-    btn.classList.remove('loading');
-    btn.classList.add('done');
-    setTimeout(() => { btn.innerHTML = dlIcon; btn.classList.remove('done'); }, 2000);
-  } catch(err) {
-    console.error('Download failed:', err);
-    btn.innerHTML = dlIcon;
-    btn.classList.remove('loading');
-  } finally {
-    document.body.removeChild(wrapper);
-  }
+function toggleMenu(){
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mobile-menu').classList.toggle('open');
 }
+const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){ x.target.classList.add('in-view'); obs.unobserve(x.target); } }), {threshold:.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
-<style>
-@keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-</style>
 </body>
 </html>

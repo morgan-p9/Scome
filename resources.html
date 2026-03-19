@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academic Resources – EKSUMSA SCOME</title>
+<style>
+/* === SHARED === */
+/* ═══════════════════════════════════════════
+   EKSUMSA SCOME — Shared Stylesheet
+   ═══════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:    #0d0d0b;
+  --ink2:   #181714;
+  --sand:   #e9e5dc;
+  --cream:  #f4f1eb;
+  --green:  #1a6b2f;
+  --lime:   #c8f564;
+  --muted:  #8a8880;
+  --rule:   rgba(255,255,255,0.07);
+  --nav-h:  68px;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Outfit', sans-serif; background: var(--ink); color: var(--cream); overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* ─── NAV ─── */
+#site-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: var(--nav-h);
+  background: rgba(13,13,11,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule);
+  display: flex; align-items: center;
+  padding: 0 40px;
+  gap: 0;
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 12px;
+  flex-shrink: 0; margin-right: auto;
+}
+.nav-badge {
+  width: 38px; height: 38px; border-radius: 50%;
+  border: 2px solid var(--green);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Bebas Neue'; font-size: 11px; color: var(--lime); letter-spacing: 1px;
+}
+.nav-brand-text { font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #fff; line-height: 1.4; }
+.nav-brand-text span { color: var(--muted); font-weight: 400; display: block; font-size: 10px; }
+
+.nav-links {
+  display: flex; align-items: center; gap: 4px;
+  list-style: none;
+}
+.nav-links a {
+  display: block;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 12px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: rgba(255,255,255,.55);
+  transition: color .2s, background .2s;
+  white-space: nowrap;
+}
+.nav-links a:hover { color: #fff; background: rgba(255,255,255,.06); }
+.nav-links a.active { color: var(--lime); background: rgba(200,245,100,.08); }
+
+.nav-socials {
+  display: flex; align-items: center; gap: 10px;
+  margin-left: 20px; padding-left: 20px;
+  border-left: 1px solid var(--rule);
+}
+.nav-socials a {
+  width: 32px; height: 32px;
+  border-radius: 50%; border: 1px solid rgba(255,255,255,.12);
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color .2s, background .2s;
+}
+.nav-socials a:hover { border-color: var(--lime); background: rgba(200,245,100,.1); }
+.nav-socials svg { width: 14px; height: 14px; fill: rgba(255,255,255,.55); transition: fill .2s; }
+.nav-socials a:hover svg { fill: var(--lime); }
+
+/* Hamburger */
+.nav-hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 6px; margin-left: 12px;
+}
+.nav-hamburger span { width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: all .25s; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-mobile-menu {
+  display: none; position: fixed;
+  top: var(--nav-h); left: 0; right: 0;
+  background: rgba(13,13,11,.98);
+  border-bottom: 1px solid var(--rule);
+  padding: 20px 24px 28px;
+  z-index: 999; flex-direction: column; gap: 4px;
+}
+.nav-mobile-menu.open { display: flex; }
+.nav-mobile-menu a {
+  display: block; padding: 12px 16px; border-radius: 8px;
+  font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  color: rgba(255,255,255,.6); transition: color .2s, background .2s;
+}
+.nav-mobile-menu a:hover, .nav-mobile-menu a.active { color: var(--lime); background: rgba(200,245,100,.07); }
+.nav-mobile-socials {
+  display: flex; gap: 12px; margin-top: 14px; padding-top: 14px;
+  border-top: 1px solid var(--rule);
+}
+.nav-mobile-socials a {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.12);
+  display: flex; align-items: center; justify-content: center;
+  padding: 0;
+}
+.nav-mobile-socials a:hover { border-color: var(--lime); background: rgba(200,245,100,.1); }
+.nav-mobile-socials svg { width: 15px; height: 15px; fill: rgba(255,255,255,.55); }
+
+/* Page offset */
+.page-body { padding-top: var(--nav-h); }
+
+/* ─── FOOTER ─── */
+.site-footer {
+  background: var(--ink);
+  border-top: 1px solid var(--rule);
+  padding: 48px 60px 36px;
+}
+.footer-inner {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px; margin-bottom: 36px;
+}
+.footer-col-title {
+  font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 16px;
+}
+.footer-brand-big {
+  font-family: 'Bebas Neue'; font-size: 36px; letter-spacing: .02em;
+  color: rgba(255,255,255,.08); line-height: 1; margin-bottom: 10px;
+}
+.footer-tagline { font-size: 13px; color: rgba(255,255,255,.4); line-height: 1.6; font-style: italic; }
+.footer-links { display: flex; flex-direction: column; gap: 8px; }
+.footer-links a { font-size: 13px; color: rgba(255,255,255,.45); transition: color .2s; }
+.footer-links a:hover { color: var(--lime); }
+.footer-socials-row { display: flex; gap: 10px; }
+.footer-socials-row a {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.12);
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color .2s, background .2s;
+}
+.footer-socials-row a:hover { border-color: var(--lime); background: rgba(200,245,100,.1); }
+.footer-socials-row svg { width: 15px; height: 15px; fill: rgba(255,255,255,.5); }
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 24px; border-top: 1px solid var(--rule);
+  font-size: 11px; color: var(--muted); letter-spacing: .08em;
+}
+
+/* ─── SECTION UTILITIES ─── */
+.section-eyebrow {
+  font-size: 11px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--lime); display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
+}
+.section-eyebrow::before { content: ''; width: 30px; height: 2px; background: var(--lime); }
+.section-title-xl {
+  font-family: 'Bebas Neue'; font-size: clamp(48px,6vw,88px);
+  line-height: 1; letter-spacing: .02em; color: #fff;
+}
+.section-title-xl.dark { color: var(--ink); }
+.section-body-text { font-size: 17px; line-height: 1.7; color: rgba(255,255,255,.6); max-width: 640px; }
+.section-body-text.dark { color: rgba(13,13,11,.65); }
+
+/* reveal animation */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in-view { opacity: 1; transform: none; }
+
+/* ─── PILL BUTTON ─── */
+.btn-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px; border-radius: 100px;
+  font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  transition: all .22s; cursor: pointer; border: none;
+}
+.btn-pill.primary { background: var(--lime); color: var(--ink); }
+.btn-pill.primary:hover { background: #d4ff70; transform: translateY(-2px); }
+.btn-pill.outline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.2); }
+.btn-pill.outline:hover { border-color: var(--lime); color: var(--lime); transform: translateY(-2px); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  #site-nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .nav-socials { display: none; }
+  .nav-hamburger { display: flex; }
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+  .site-footer { padding: 40px 24px 28px; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+}
+
+/* === PAGE === */
+/* ── PAGE HERO ── */
+.page-hero {
+  min-height: 52vh; background: var(--ink);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 80px 60px 64px; position: relative; overflow: hidden;
+}
+.page-hero-bg {
+  position: absolute; bottom: -60px; right: -20px;
+  font-family: 'Bebas Neue'; font-size: clamp(160px,22vw,320px);
+  line-height: 1; color: rgba(255,255,255,.025); user-select: none; z-index: 0;
+}
+.page-hero-content { position: relative; z-index: 1; max-width: 800px; }
+
+/* ── YEAR LEVELS ── */
+#year-levels { background: var(--sand); padding: 100px 60px; }
+.years-intro { max-width: 1200px; margin: 0 auto 60px; }
+.years-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+}
+.year-card {
+  background: var(--ink); padding: 0;
+  display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+  transition: transform .25s;
+}
+.year-card:hover:not(.locked) { transform: translateY(-4px); }
+.year-card-top {
+  padding: 36px 32px 28px;
+  display: flex; align-items: flex-start; justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.year-num {
+  font-family: 'Bebas Neue'; font-size: 72px; line-height: 1; color: var(--lime);
+}
+.year-badge {
+  padding: 5px 12px; border-radius: 100px; font-size: 10px; font-weight: 800;
+  letter-spacing: .12em; text-transform: uppercase;
+}
+.year-badge.available { background: rgba(200,245,100,.12); border: 1px solid rgba(200,245,100,.3); color: var(--lime); }
+.year-badge.coming { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); color: rgba(255,255,255,.35); }
+
+.year-card-body { padding: 24px 32px; flex: 1; }
+.year-card-title { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+.year-card-desc { font-size: 14px; color: rgba(255,255,255,.45); line-height: 1.65; }
+
+.year-card-subjects {
+  padding: 0 32px 20px;
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.subj-tag {
+  padding: 4px 10px; border-radius: 4px;
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);
+  font-size: 11px; font-weight: 600; color: rgba(255,255,255,.5);
+}
+
+.year-card-footer { padding: 20px 32px; border-top: 1px solid rgba(255,255,255,.06); }
+.year-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 22px; border-radius: 8px;
+  font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+  background: var(--lime); color: var(--ink);
+  transition: background .2s, transform .2s;
+}
+.year-link:hover { background: #d4ff70; transform: translateY(-1px); }
+.year-link-locked {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 22px; border-radius: 8px;
+  font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+  background: rgba(255,255,255,.05); color: rgba(255,255,255,.3);
+  border: 1px solid rgba(255,255,255,.08); cursor: not-allowed;
+}
+.year-link svg, .year-link-locked svg { width: 14px; height: 14px; }
+
+/* ── HOW TO USE ── */
+#how-to { background: var(--ink); padding: 100px 60px; }
+.how-grid {
+  max-width: 1200px; margin: 40px auto 0;
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+}
+.how-card {
+  background: var(--ink2); padding: 40px 32px;
+  border: 1px solid var(--rule);
+}
+.how-step {
+  font-family: 'Bebas Neue'; font-size: 56px; color: var(--lime); line-height: 1; margin-bottom: 16px;
+}
+.how-title { font-size: 17px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+.how-body { font-size: 14px; color: rgba(255,255,255,.5); line-height: 1.65; }
+
+@media(max-width:900px){
+  .page-hero { padding: 60px 24px 48px; }
+  #year-levels { padding: 70px 24px; }
+  .years-grid { grid-template-columns: 1fr; }
+  #how-to { padding: 70px 24px; }
+  .how-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body class="page-body">
+
+<!-- ═══ NAV ═══ -->
+<nav id="site-nav">
+  <div class="nav-brand">
+    <div class="nav-badge">EK</div>
+    <div class="nav-brand-text">EKSUMSA SCOME<span>Ekiti State University · Ado-Ekiti</span></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="medbites.html">Med Bites</a></li>
+    <li><a href="resources.html" class="active">Resources</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="workshops.html">Workshops</a></li>
+  </ul>
+  <div class="nav-socials">
+    <a href="https://x.com/i/status/2032176159362822282" target="_blank"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.912-5.622z"/></svg></a>
+    <a href="https://www.instagram.com/p/DVy85rdCA8X/?igsh=MXJ3NjY2MWo5M2Y3cg==" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+    <a href="https://vt.tiktok.com/ZSuUeLGCw/" target="_blank"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.33a8.16 8.16 0 0 0 4.77 1.52V7.4a4.85 4.85 0 0 1-1-.71z"/></svg></a>
+  </div>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="nav-mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a><a href="medbites.html">Med Bites</a>
+  <a href="resources.html" class="active">Academic Resources</a>
+  <a href="research.html">Research</a><a href="workshops.html">Workshops & Outreach</a>
+  <div class="nav-mobile-socials">
+    <a href="https://x.com/i/status/2032176159362822282" target="_blank"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,.6)"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.912-5.622z"/></svg></a>
+    <a href="https://www.instagram.com/p/DVy85rdCA8X/?igsh=MXJ3NjY2MWo5M2Y3cg==" target="_blank"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,.6)"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+    <a href="https://vt.tiktok.com/ZSuUeLGCw/" target="_blank"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,.6)"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.33a8.16 8.16 0 0 0 4.77 1.52V7.4a4.85 4.85 0 0 1-1-.71z"/></svg></a>
+  </div>
+</div>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="page-hero-bg">LEARN</div>
+  <div class="page-hero-content">
+    <div class="section-eyebrow" style="animation:fadeUp .7s ease both">Academic Resources</div>
+    <h1 class="section-title-xl" style="animation:fadeUp .7s .1s ease both;margin-bottom:20px;">Study<br>Materials</h1>
+    <p class="section-body-text" style="animation:fadeUp .7s .2s ease both;">
+      Curated lecture notes, past questions, and study guides organized by year level — shared and maintained by EKSUMSA SCOME.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ YEAR LEVELS ═══ -->
+<section id="year-levels">
+  <div class="years-intro">
+    <div class="section-eyebrow reveal" style="color:var(--green)">By Year Level</div>
+    <h2 class="section-title-xl dark reveal" style="margin-bottom:16px;">Choose Your Level</h2>
+    <p class="section-body-text dark reveal">Click your year to access the Google Drive folder for your level. More levels will be added as materials are compiled.</p>
+  </div>
+  <div class="years-grid">
+
+    <!-- 100 LEVEL — AVAILABLE -->
+    <a href="https://drive.google.com/drive/folders/1d2p2KDThdkgSrXCWpCfFlM4zmC3bwIrN" target="_blank" class="year-card reveal">
+      <div class="year-card-top">
+        <div class="year-num">100</div>
+        <div class="year-badge available">Available</div>
+      </div>
+      <div class="year-card-body">
+        <div class="year-card-title">100 Level</div>
+        <div class="year-card-desc">Foundation year materials — lecture notes, past questions, and study aids for your first year of medical school.</div>
+      </div>
+      <div class="year-card-subjects">
+        <span class="subj-tag">Anatomy</span>
+        <span class="subj-tag">Physiology</span>
+        <span class="subj-tag">Biochemistry</span>
+        <span class="subj-tag">GST Courses</span>
+      </div>
+      <div class="year-card-footer">
+        <span class="year-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Open Drive Folder
+        </span>
+      </div>
+    </a>
+
+    <!-- 200 LEVEL — COMING SOON -->
+    <div class="year-card locked reveal">
+      <div class="year-card-top">
+        <div class="year-num" style="color:rgba(255,255,255,.15);">200</div>
+        <div class="year-badge coming">Coming Soon</div>
+      </div>
+      <div class="year-card-body">
+        <div class="year-card-title" style="color:rgba(255,255,255,.4);">200 Level</div>
+        <div class="year-card-desc">Materials for 200 level are being compiled. Check back soon.</div>
+      </div>
+      <div class="year-card-subjects">
+        <span class="subj-tag" style="opacity:.4">Anatomy II</span>
+        <span class="subj-tag" style="opacity:.4">Physiology II</span>
+        <span class="subj-tag" style="opacity:.4">Biochemistry II</span>
+      </div>
+      <div class="year-card-footer">
+        <span class="year-link-locked">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Not Yet Available
+        </span>
+      </div>
+    </div>
+
+    <!-- 300 LEVEL -->
+    <div class="year-card locked reveal">
+      <div class="year-card-top">
+        <div class="year-num" style="color:rgba(255,255,255,.15);">300</div>
+        <div class="year-badge coming">Coming Soon</div>
+      </div>
+      <div class="year-card-body">
+        <div class="year-card-title" style="color:rgba(255,255,255,.4);">300 Level</div>
+        <div class="year-card-desc">Pre-clinical year resources. Materials will be available soon.</div>
+      </div>
+      <div class="year-card-subjects">
+        <span class="subj-tag" style="opacity:.4">Pathology</span>
+        <span class="subj-tag" style="opacity:.4">Pharmacology</span>
+        <span class="subj-tag" style="opacity:.4">Microbiology</span>
+      </div>
+      <div class="year-card-footer">
+        <span class="year-link-locked">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Not Yet Available
+        </span>
+      </div>
+    </div>
+
+    <!-- 400 LEVEL -->
+    <div class="year-card locked reveal">
+      <div class="year-card-top">
+        <div class="year-num" style="color:rgba(255,255,255,.15);">400</div>
+        <div class="year-badge coming">Coming Soon</div>
+      </div>
+      <div class="year-card-body">
+        <div class="year-card-title" style="color:rgba(255,255,255,.4);">400 Level</div>
+        <div class="year-card-desc">Clinical foundation year. Materials coming once compiled.</div>
+      </div>
+      <div class="year-card-subjects">
+        <span class="subj-tag" style="opacity:.4">Medicine</span>
+        <span class="subj-tag" style="opacity:.4">Surgery</span>
+        <span class="subj-tag" style="opacity:.4">Paediatrics</span>
+      </div>
+      <div class="year-card-footer">
+        <span class="year-link-locked">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Not Yet Available
+        </span>
+      </div>
+    </div>
+
+    <!-- 500 LEVEL -->
+    <div class="year-card locked reveal">
+      <div class="year-card-top">
+        <div class="year-num" style="color:rgba(255,255,255,.15);">500</div>
+        <div class="year-badge coming">Coming Soon</div>
+      </div>
+      <div class="year-card-body">
+        <div class="year-card-title" style="color:rgba(255,255,255,.4);">500 Level</div>
+        <div class="year-card-desc">Advanced clinical studies. Resources will be uploaded progressively.</div>
+      </div>
+      <div class="year-card-subjects">
+        <span class="subj-tag" style="opacity:.4">O&G</span>
+        <span class="subj-tag" style="opacity:.4">Psychiatry</span>
+        <span class="subj-tag" style="opacity:.4">ENT</span>
+      </div>
+      <div class="year-card-footer">
+        <span class="year-link-locked">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Not Yet Available
+        </span>
+      </div>
+    </div>
+
+    <!-- 600 LEVEL -->
+    <div class="year-card locked reveal">
+      <div class="year-card-top">
+        <div class="year-num" style="color:rgba(255,255,255,.15);">600</div>
+        <div class="year-badge coming">Coming Soon</div>
+      </div>
+      <div class="year-card-body">
+        <div class="year-card-title" style="color:rgba(255,255,255,.4);">600 Level</div>
+        <div class="year-card-desc">Final year — revision materials and past professional examination questions.</div>
+      </div>
+      <div class="year-card-subjects">
+        <span class="subj-tag" style="opacity:.4">Finals Prep</span>
+        <span class="subj-tag" style="opacity:.4">OSCE</span>
+        <span class="subj-tag" style="opacity:.4">Clinical Rotations</span>
+      </div>
+      <div class="year-card-footer">
+        <span class="year-link-locked">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Not Yet Available
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ HOW TO USE ═══ -->
+<section id="how-to">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-eyebrow reveal">Using the Library</div>
+    <h2 class="section-title-xl reveal" style="margin-bottom:8px;">How it Works</h2>
+  </div>
+  <div class="how-grid">
+    <div class="how-card reveal">
+      <div class="how-step">01</div>
+      <div class="how-title">Choose Your Year</div>
+      <div class="how-body">Select your current year level from the grid above. Available levels link directly to organized Google Drive folders.</div>
+    </div>
+    <div class="how-card reveal">
+      <div class="how-step">02</div>
+      <div class="how-title">Access the Drive</div>
+      <div class="how-body">You'll be taken to a Google Drive folder containing lecture notes, past questions, and other curated study materials.</div>
+    </div>
+    <div class="how-card reveal">
+      <div class="how-step">03</div>
+      <div class="how-title">Contribute Materials</div>
+      <div class="how-body">Have notes or past questions to share? Reach out to our Director of Academics & Research to add to the library.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-big">EKSUMSA<br>SCOME</div>
+      <p class="footer-tagline">"Advancing Medical Education,<br>One Student at a Time."</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a><a href="medbites.html">Med Bites</a>
+        <a href="resources.html">Academic Resources</a><a href="research.html">Research</a>
+        <a href="workshops.html">Workshops & Outreach</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Connect</div>
+      <div class="footer-socials-row" style="margin-bottom:20px;">
+        <a href="https://x.com/i/status/2032176159362822282" target="_blank"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.912-5.622z"/></svg></a>
+        <a href="https://www.instagram.com/p/DVy85rdCA8X/?igsh=MXJ3NjY2MWo5M2Y3cg==" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="https://vt.tiktok.com/ZSuUeLGCw/" target="_blank"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.33a8.16 8.16 0 0 0 4.77 1.52V7.4a4.85 4.85 0 0 1-1-.71z"/></svg></a>
+      </div>
+      <p style="font-size:13px;color:rgba(255,255,255,.35);line-height:1.6;">Ekiti State University<br>Ado-Ekiti, Ekiti State, Nigeria</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 EKSUMSA SCOME — All rights reserved</span>
+    <span>IFMSA · Medical Students Worldwide</span>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+const obs = new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in-view');obs.unobserve(x.target);}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+<style>@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}</style>
+</body>
+</html>
