@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World TB Day 2026 – EKSUMSA SCOME</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ═══ TB DAY PAGE STYLES ═══ */
+
+/* ── HERO ── */
+.tb-hero {
+  min-height: 100vh;
+  background: var(--ink);
+  display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+}
+.tb-hero-bg-word {
+  position: absolute; bottom: -80px; right: -40px;
+  font-family: 'Bebas Neue'; font-size: clamp(180px,28vw,420px);
+  line-height: 1; color: rgba(255,255,255,.018);
+  user-select: none; pointer-events: none; letter-spacing: -6px; z-index: 0;
+}
+.tb-hero-accent-line {
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, #c0392b 0%, rgba(192,57,43,0) 60%);
+}
+.tb-hero-content {
+  flex: 1; display: flex; flex-direction: column;
+  justify-content: center; padding: 100px 60px 60px;
+  position: relative; z-index: 2; max-width: 960px;
+}
+.tb-eyebrow {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-size: 11px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase;
+  color: #e05c4b; margin-bottom: 28px; animation: fadeUp .7s ease both;
+}
+.tb-eyebrow::before { content: ''; width: 28px; height: 2px; background: #e05c4b; }
+.tb-hero-title {
+  font-family: 'Bebas Neue';
+  font-size: clamp(72px,13vw,156px);
+  line-height: .88; letter-spacing: .01em; color: #fff;
+  animation: fadeUp .7s .1s ease both;
+}
+.tb-hero-title em {
+  font-style: normal; color: transparent;
+  -webkit-text-stroke: 2px rgba(255,255,255,.2);
+}
+.tb-hero-date {
+  margin-top: 28px;
+  font-family: 'Bebas Neue'; font-size: 22px; letter-spacing: .15em;
+  color: rgba(255,255,255,.25); animation: fadeUp .7s .2s ease both;
+}
+.tb-hero-sub {
+  margin-top: 16px; font-size: 19px; font-weight: 400;
+  color: rgba(255,255,255,.45); max-width: 520px; line-height: 1.65;
+  font-style: italic; animation: fadeUp .7s .25s ease both;
+}
+.tb-hero-ctas {
+  margin-top: 44px; display: flex; gap: 14px; flex-wrap: wrap;
+  animation: fadeUp .7s .35s ease both;
+}
+.tb-hero-stats {
+  display: flex; gap: 56px; margin-top: 64px;
+  animation: fadeUp .7s .45s ease both;
+  padding-top: 48px; border-top: 1px solid rgba(255,255,255,.06);
+}
+.tb-stat-num {
+  font-family: 'Bebas Neue'; font-size: 44px; line-height: 1; color: #e05c4b;
+}
+.tb-stat-label {
+  font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(255,255,255,.3); margin-top: 4px;
+}
+
+/* ── SECTION: IN ACTION ── */
+#tb-action { background: var(--sand); padding: 120px 60px; }
+.action-header { max-width: 1200px; margin: 0 auto 56px; }
+.photo-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.4fr 1fr; gap: 3px;
+}
+.photo-slot {
+  position: relative; overflow: hidden; background: var(--ink);
+}
+.photo-slot img {
+  width: 100%; height: 100%; object-fit: cover;
+  display: block; transition: transform .5s ease;
+  min-height: 380px;
+}
+.photo-slot:hover img { transform: scale(1.03); }
+.photo-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 20px 24px;
+  background: linear-gradient(transparent, rgba(0,0,0,.7));
+  font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  color: rgba(255,255,255,.7);
+}
+
+/* ── SECTION: KNOW TB ── */
+#know-tb { background: var(--cream); padding: 120px 60px; }
+.know-header { max-width: 1200px; margin: 0 auto 56px; }
+.know-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+}
+.know-card {
+  background: var(--ink); padding: 44px 36px;
+  position: relative; overflow: hidden;
+  transition: transform .25s;
+}
+.know-card:hover { transform: translateY(-4px); }
+.know-card-num {
+  font-family: 'Bebas Neue'; font-size: 80px; line-height: 1;
+  color: rgba(255,255,255,.03); position: absolute;
+  bottom: -10px; right: 10px; user-select: none;
+}
+.know-card-icon {
+  width: 42px; height: 42px; border-radius: 10px;
+  border: 1px solid rgba(224,92,75,.3);
+  background: rgba(224,92,75,.08);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 22px;
+}
+.know-card-icon svg { width: 18px; height: 18px; stroke: #e05c4b; fill: none; stroke-width: 2; }
+.know-card-label {
+  font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase;
+  color: #e05c4b; margin-bottom: 14px;
+}
+.know-card-title { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 14px; line-height: 1.3; position: relative; z-index: 1; }
+.know-card-points { position: relative; z-index: 1; }
+.know-card-point {
+  font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.65;
+  padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.05);
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.know-card-point:last-child { border-bottom: none; }
+.know-card-point::before { content: '—'; color: rgba(224,92,75,.5); flex-shrink: 0; font-size: 12px; margin-top: 2px; }
+
+/* ── SECTION: POSTERS ── */
+#tb-posters { background: var(--ink); padding: 120px 60px; }
+.posters-header { max-width: 1200px; margin: 0 auto 56px; }
+.posters-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+}
+.poster-card {
+  background: var(--ink2); border: 1px solid var(--rule);
+  display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+}
+.poster-image-wrap {
+  width: 100%; aspect-ratio: 4/5; overflow: hidden; background: #111;
+}
+.poster-image-wrap img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .5s ease;
+}
+.poster-card:hover .poster-image-wrap img { transform: scale(1.03); }
+.poster-card-footer {
+  padding: 24px 28px; display: flex; align-items: center;
+  justify-content: space-between; border-top: 1px solid var(--rule);
+  gap: 16px; flex-wrap: wrap;
+}
+.poster-card-label { font-size: 13px; font-weight: 700; color: rgba(255,255,255,.6); }
+.poster-share-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 18px; border-radius: 100px;
+  border: 1px solid rgba(224,92,75,.3);
+  font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  color: #e05c4b; background: rgba(224,92,75,.06);
+}
+.poster-share-tag svg { width: 12px; height: 12px; stroke: #e05c4b; fill: none; stroke-width: 2; }
+.posters-cta {
+  max-width: 1200px; margin: 40px auto 0;
+  padding: 32px 40px;
+  border: 1px solid rgba(255,255,255,.06);
+  background: rgba(255,255,255,.02);
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  flex-wrap: wrap;
+}
+.posters-cta-text { font-size: 15px; color: rgba(255,255,255,.5); font-style: italic; }
+.posters-cta-text strong { color: rgba(255,255,255,.75); font-style: normal; }
+
+/* ── SECTION: CLINICAL CASES ── */
+#tb-cases { background: var(--sand); padding: 120px 60px; }
+.cases-header { max-width: 1200px; margin: 0 auto 56px; }
+.cases-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px;
+}
+.case-card {
+  background: var(--ink); padding: 0;
+  display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+  transition: transform .25s;
+}
+.case-card:hover { transform: translateY(-4px); }
+.case-card-top {
+  padding: 32px 36px 24px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+}
+.case-num-badge {
+  font-family: 'Bebas Neue'; font-size: 13px; letter-spacing: .15em;
+  color: rgba(255,255,255,.25);
+  padding: 5px 12px; border: 1px solid rgba(255,255,255,.1); border-radius: 4px;
+}
+.case-type-tag {
+  font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 100px;
+  background: rgba(224,92,75,.1); border: 1px solid rgba(224,92,75,.3);
+  color: #e05c4b;
+}
+.case-card-body { padding: 28px 36px; flex: 1; }
+.case-title { font-family: 'Bebas Neue'; font-size: 36px; color: #fff; line-height: 1; margin-bottom: 18px; }
+.case-presentation {
+  font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.7;
+  margin-bottom: 22px;
+}
+.case-presentation strong { color: rgba(255,255,255,.8); }
+.case-divider { height: 1px; background: rgba(255,255,255,.06); margin-bottom: 18px; }
+.case-row { display: flex; gap: 16px; margin-bottom: 10px; }
+.case-row:last-child { margin-bottom: 0; }
+.case-row-label {
+  font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(255,255,255,.25); min-width: 90px; padding-top: 2px; flex-shrink: 0;
+}
+.case-row-value { font-size: 13px; color: rgba(255,255,255,.65); line-height: 1.55; }
+.case-row-value strong { color: #e05c4b; font-weight: 700; }
+.case-card-footer {
+  padding: 20px 36px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(255,255,255,.2); display: flex; align-items: center; gap: 10px;
+}
+.case-card-footer svg { width: 14px; height: 14px; stroke: rgba(255,255,255,.2); fill: none; stroke-width: 2; }
+.cases-slide-link {
+  max-width: 1200px; margin: 40px auto 0;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 28px 40px; border: 1px solid rgba(200,245,100,.15);
+  background: rgba(200,245,100,.03);
+  flex-wrap: wrap; gap: 16px;
+}
+.cases-slide-link p { font-size: 14px; color: rgba(255,255,255,.45); }
+.cases-slide-link p strong { color: rgba(255,255,255,.75); }
+
+/* ── SECTION: RESEARCH ── */
+#tb-research { background: var(--ink2); padding: 120px 60px; border-top: 1px solid var(--rule); }
+.research-header { max-width: 1200px; margin: 0 auto 56px; }
+.research-feature {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 340px; gap: 2px; align-items: stretch;
+}
+.research-feature-main {
+  background: var(--ink); padding: 56px 52px;
+  border: 1px solid var(--rule); position: relative; overflow: hidden;
+}
+.research-feature-bg {
+  position: absolute; bottom: -30px; right: -10px;
+  font-family: 'Bebas Neue'; font-size: 180px; line-height: 1;
+  color: rgba(255,255,255,.02); user-select: none;
+}
+.research-tag {
+  font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--lime); display: flex; align-items: center; gap: 10px; margin-bottom: 24px;
+}
+.research-tag::before { content: ''; width: 24px; height: 2px; background: var(--lime); }
+.research-title { font-family: 'Bebas Neue'; font-size: clamp(32px,4vw,56px); color: #fff; line-height: 1.05; margin-bottom: 22px; }
+.research-abstract { font-size: 15px; color: rgba(255,255,255,.5); line-height: 1.75; margin-bottom: 32px; max-width: 580px; position: relative; z-index: 1; }
+.research-stats-row {
+  display: flex; gap: 40px; margin-bottom: 36px;
+  padding: 24px 0; border-top: 1px solid rgba(255,255,255,.06); border-bottom: 1px solid rgba(255,255,255,.06);
+  position: relative; z-index: 1;
+}
+.research-stat-val { font-family: 'Bebas Neue'; font-size: 40px; color: var(--lime); line-height: 1; }
+.research-stat-lbl { font-size: 11px; color: rgba(255,255,255,.3); letter-spacing: .08em; text-transform: uppercase; margin-top: 4px; }
+.research-feature-side {
+  background: rgba(200,245,100,.04); border: 1px solid rgba(200,245,100,.12);
+  padding: 44px 36px; display: flex; flex-direction: column; justify-content: space-between;
+}
+.research-side-label {
+  font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--lime); margin-bottom: 20px;
+}
+.research-key-findings { list-style: none; display: flex; flex-direction: column; gap: 16px; flex: 1; margin-bottom: 36px; }
+.research-key-findings li {
+  font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.6;
+  padding-left: 16px; position: relative;
+}
+.research-key-findings li::before {
+  content: '→'; position: absolute; left: 0;
+  color: var(--lime); font-size: 11px;
+}
+
+/* ── SECTION: SURVEY PLACEHOLDER ── */
+#tb-survey { background: var(--cream); padding: 100px 60px; }
+.survey-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px; align-items: center;
+}
+.survey-left { padding-right: 40px; }
+.survey-placeholder {
+  background: var(--ink); padding: 60px 40px;
+  border: 1px dashed rgba(255,255,255,.12);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; min-height: 260px;
+}
+.survey-placeholder-icon {
+  width: 60px; height: 60px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.1);
+  display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
+}
+.survey-placeholder-icon svg { width: 24px; height: 24px; stroke: rgba(255,255,255,.25); fill: none; }
+.survey-placeholder-text { font-size: 14px; color: rgba(255,255,255,.3); line-height: 1.6; }
+.survey-placeholder-badge {
+  margin-top: 16px; display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 16px; border-radius: 100px;
+  border: 1px solid rgba(255,255,255,.1);
+  font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(255,255,255,.25);
+}
+
+/* ── SECTION: VIDEOS ── */
+#tb-videos { background: var(--ink); padding: 120px 60px; }
+.videos-header { max-width: 1200px; margin: 0 auto 56px; }
+.video-placeholder-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+}
+.video-slot {
+  background: #0a0a09; border: 1px solid var(--rule);
+  aspect-ratio: 16/9; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  position: relative; overflow: hidden; cursor: pointer;
+  transition: border-color .2s;
+}
+.video-slot:hover { border-color: rgba(224,92,75,.3); }
+.video-play-ring {
+  width: 64px; height: 64px; border-radius: 50%;
+  border: 2px solid rgba(224,92,75,.4);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px; transition: border-color .2s, background .2s;
+}
+.video-slot:hover .video-play-ring { border-color: #e05c4b; background: rgba(224,92,75,.08); }
+.video-play-ring svg { width: 20px; height: 20px; fill: rgba(224,92,75,.7); margin-left: 3px; }
+.video-slot-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(255,255,255,.2);
+}
+.video-slot:hover .video-slot-label { color: rgba(255,255,255,.4); }
+.video-coming-badge {
+  position: absolute; top: 16px; right: 16px;
+  padding: 4px 10px; border-radius: 4px;
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+  font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(255,255,255,.2);
+}
+
+/* ── CROSS-LINKS STRIP ── */
+#tb-crosslinks { background: var(--ink2); padding: 80px 60px; border-top: 1px solid var(--rule); }
+.crosslinks-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+}
+.crosslink-card {
+  background: var(--ink); padding: 36px 32px;
+  border: 1px solid var(--rule);
+  display: flex; flex-direction: column; gap: 14px;
+  transition: border-color .2s, transform .25s;
+  text-decoration: none;
+}
+.crosslink-card:hover { border-color: rgba(200,245,100,.2); transform: translateY(-3px); }
+.crosslink-label {
+  font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--lime);
+}
+.crosslink-title { font-size: 17px; font-weight: 800; color: #fff; line-height: 1.35; }
+.crosslink-desc { font-size: 13px; color: rgba(255,255,255,.4); line-height: 1.6; flex: 1; }
+.crosslink-arrow { font-size: 18px; color: var(--lime); margin-top: auto; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .tb-hero-content { padding: 100px 24px 48px; }
+  .tb-hero-stats { gap: 28px; }
+  #tb-action, #know-tb, #tb-posters, #tb-cases, #tb-research, #tb-survey, #tb-videos, #tb-crosslinks { padding: 70px 24px; }
+  .photo-grid, .know-grid, .posters-grid, .cases-grid,
+  .research-feature, .survey-inner, .video-placeholder-grid, .crosslinks-inner { grid-template-columns: 1fr; }
+  .survey-left { padding-right: 0; }
+  .cases-slide-link, .posters-cta { flex-direction: column; gap: 12px; }
+  .research-stats-row { gap: 24px; flex-wrap: wrap; }
+}
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+</style>
+</head>
+<body class="page-body">
+
+<!-- ═══ NAV ═══ -->
+<nav id="site-nav">
+  <div class="nav-brand">
+    <div class="nav-badge">EKSU</div>
+    <div class="nav-brand-text">EKSUMSA SCOME<span>Ekiti State University</span></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="medbites.html">Med Bites</a></li>
+    <li><a href="resources.html">Academic Resources</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="workshops.html">Workshops &amp; Outreach</a></li>
+    <li><a href="tb-day.html" class="active" style="color:#e05c4b;background:rgba(224,92,75,.08);">TB Day 2026</a></li>
+  </ul>
+  <div class="nav-socials">
+    <a href="https://x.com/i/status/2032176159362822282" target="_blank" title="Twitter / X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.912-5.622z"/></svg></a>
+    <a href="https://www.instagram.com/p/DVy85rdCA8X/?igsh=MXJ3NjY2MWo5M2Y3cg==" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+    <a href="https://vt.tiktok.com/ZSuUeLGCw/" target="_blank" title="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.33a8.16 8.16 0 0 0 4.77 1.52V7.4a4.85 4.85 0 0 1-1-.71z"/></svg></a>
+  </div>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="nav-mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="medbites.html">Med Bites</a>
+  <a href="resources.html">Academic Resources</a>
+  <a href="research.html">Research</a>
+  <a href="workshops.html">Workshops &amp; Outreach</a>
+  <a href="tb-day.html" class="active" style="color:#e05c4b;">TB Day 2026</a>
+  <div class="nav-mobile-socials">
+    <a href="https://x.com/i/status/2032176159362822282" target="_blank"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,.6)"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.912-5.622z"/></svg></a>
+    <a href="https://www.instagram.com/p/DVy85rdCA8X/?igsh=MXJ3NjY2MWo5M2Y3cg==" target="_blank"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,.6)"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+    <a href="https://vt.tiktok.com/ZSuUeLGCw/" target="_blank"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,.6)"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.33a8.16 8.16 0 0 0 4.77 1.52V7.4a4.85 4.85 0 0 1-1-.71z"/></svg></a>
+  </div>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="tb-hero">
+  <div class="tb-hero-accent-line"></div>
+  <div class="tb-hero-bg-word">TUBERCULOSIS</div>
+  <div class="tb-hero-content">
+    <div class="tb-eyebrow">World TB Day · SCOME Campaign</div>
+    <h1 class="tb-hero-title">End<br><em>TB.</em><br>Now.</h1>
+    <div class="tb-hero-date">MARCH 24, 2026</div>
+    <p class="tb-hero-sub">EKSUMSA SCOME's campaign to raise awareness, educate communities, and mobilise students in the fight against tuberculosis.</p>
+    <div class="tb-hero-ctas">
+      <a href="#know-tb" class="btn-pill primary">Know the Facts</a>
+      <a href="#tb-cases" class="btn-pill outline">Clinical Cases</a>
+      <a href="#tb-research" class="btn-pill outline">Research</a>
+    </div>
+    <div class="tb-hero-stats">
+      <div>
+        <div class="tb-stat-num">10.7M</div>
+        <div class="tb-stat-label">New cases in 2024</div>
+      </div>
+      <div>
+        <div class="tb-stat-num">1.23M</div>
+        <div class="tb-stat-label">Deaths annually</div>
+      </div>
+      <div>
+        <div class="tb-stat-num">25%</div>
+        <div class="tb-stat-label">Cases from Nigeria's region</div>
+      </div>
+      <div>
+        <div class="tb-stat-num">6 Mths</div>
+        <div class="tb-stat-label">Standard cure duration</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ IN ACTION ═══ -->
+<section id="tb-action">
+  <div class="action-header reveal">
+    <div class="section-eyebrow" style="color:var(--green)">On Campus</div>
+    <h2 class="section-title-xl dark">Our Students.<br>Our Voices.</h2>
+  </div>
+  <div class="photo-grid">
+    <!-- Replace src paths with your actual image filenames in the same folder -->
+    <div class="photo-slot reveal">
+      <img src="images/tb-campus-1.jpg" alt="EKSUMSA SCOME students at Dept of Physiology, World TB Day activation" loading="lazy">
+      <div class="photo-caption">Department of Physiology · EKSU · March 24, 2026</div>
+    </div>
+    <div class="photo-slot reveal">
+      <img src="images/tb-campus-2.jpg" alt="EKSUMSA SCOME students after the TB Day activation" loading="lazy">
+      <div class="photo-caption">SCOME team after the campus activation</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ KNOW TB ═══ -->
+<section id="know-tb">
+  <div class="know-header reveal">
+    <div class="section-eyebrow">Education</div>
+    <h2 class="section-title-xl dark" style="margin-bottom:14px;">Know TB.</h2>
+    <p class="section-body-text dark">The facts that every student, patient, and community member should understand.</p>
+  </div>
+  <div class="know-grid">
+
+    <div class="know-card reveal">
+      <div class="know-card-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <div class="know-card-label">01 · What is TB</div>
+      <div class="know-card-title">Tuberculosis Basics</div>
+      <div class="know-card-points">
+        <div class="know-card-point">Chronic infectious disease caused by <em>Mycobacterium tuberculosis</em></div>
+        <div class="know-card-point">Primarily targets the lungs (pulmonary TB)</div>
+        <div class="know-card-point">Can spread to bones, brain, and kidneys (extrapulmonary TB)</div>
+        <div class="know-card-point">Preventable. Curable. Still killing millions.</div>
+      </div>
+      <div class="know-card-num">01</div>
+    </div>
+
+    <div class="know-card reveal">
+      <div class="know-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 1 0 5 5A5 5 0 0 0 12 2zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-14 0v1"/></svg>
+      </div>
+      <div class="know-card-label">02 · Transmission</div>
+      <div class="know-card-title">How TB Spreads</div>
+      <div class="know-card-points">
+        <div class="know-card-point">Airborne — spread via cough, sneeze, or speech droplets</div>
+        <div class="know-card-point">Droplet nuclei (&lt;5 microns) remain infectious in air for hours</div>
+        <div class="know-card-point">Requires prolonged exposure — not from casual contact</div>
+        <div class="know-card-point">NOT spread by handshakes, sharing food, or touch</div>
+      </div>
+      <div class="know-card-num">02</div>
+    </div>
+
+    <div class="know-card reveal">
+      <div class="know-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      </div>
+      <div class="know-card-label">03 · Red Flags</div>
+      <div class="know-card-title">Symptoms to Know</div>
+      <div class="know-card-points">
+        <div class="know-card-point">Persistent cough lasting &gt;2 weeks — the hallmark symptom</div>
+        <div class="know-card-point">Night sweats — profuse sweating during sleep</div>
+        <div class="know-card-point">Unexplained progressive weight loss</div>
+        <div class="know-card-point">Low-grade fever, fatigue, haemoptysis in advanced cases</div>
+      </div>
+      <div class="know-card-num">03</div>
+    </div>
+
+    <div class="know-card reveal">
+      <div class="know-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="know-card-label">04 · Prevention</div>
+      <div class="know-card-title">How to Stay Safe</div>
+      <div class="know-card-points">
+        <div class="know-card-point">BCG vaccination — protects neonates against severe TB forms</div>
+        <div class="know-card-point">Good ventilation in homes, schools, and workplaces</div>
+        <div class="know-card-point">Respiratory hygiene — cover mouth when coughing</div>
+        <div class="know-card-point">Early screening for at-risk individuals saves lives</div>
+      </div>
+      <div class="know-card-num">04</div>
+    </div>
+
+    <div class="know-card reveal">
+      <div class="know-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      </div>
+      <div class="know-card-label">05 · Treatment</div>
+      <div class="know-card-title">Treatment Protocol</div>
+      <div class="know-card-points">
+        <div class="know-card-point">Standard therapy: 6 months of four-drug combination (HRZE)</div>
+        <div class="know-card-point">Isoniazid · Rifampicin · Pyrazinamide · Ethambutol</div>
+        <div class="know-card-point">Incomplete treatment creates drug-resistant TB (MDR/XDR)</div>
+        <div class="know-card-point">DOTS — Directly Observed Therapy — ensures adherence</div>
+      </div>
+      <div class="know-card-num">05</div>
+    </div>
+
+    <div class="know-card reveal">
+      <div class="know-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M10 2v7.31"/><path d="M14 9.3V1.99"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.58 16.5h12.85"/></svg>
+      </div>
+      <div class="know-card-label">06 · Myths vs Facts</div>
+      <div class="know-card-title">Common Myths Busted</div>
+      <div class="know-card-points">
+        <div class="know-card-point"><em>"TB cannot be cured"</em> — FALSE. Curable with proper treatment</div>
+        <div class="know-card-point"><em>"TB is a disease of the past"</em> — FALSE. 10.7M cases in 2024</div>
+        <div class="know-card-point"><em>"TB is hereditary"</em> — FALSE. Caused by bacteria, not genes</div>
+        <div class="know-card-point"><em>"BCG fully protects adults"</em> — FALSE. Partial protection only</div>
+      </div>
+      <div class="know-card-num">06</div>
+    </div>
+
+  </div>
+  <!-- Cross-link to Med Bites -->
+  <div style="max-width:1200px;margin:40px auto 0;display:flex;align-items:center;justify-content:space-between;padding:24px 36px;background:rgba(13,13,11,.04);border:1px solid rgba(0,0,0,.1);flex-wrap:wrap;gap:12px;">
+    <p style="font-size:14px;color:rgba(0,0,0,.5);">Want deeper clinical questions on TB? Our Med Bites flashcards have you covered.</p>
+    <a href="medbites.html#infectious-disease" class="btn-pill primary" style="font-size:11px;padding:10px 22px;">TB Med Bites →</a>
+  </div>
+</section>
+
+<!-- ═══ POSTERS ═══ -->
+<section id="tb-posters">
+  <div class="posters-header reveal">
+    <div class="section-eyebrow">Awareness Materials</div>
+    <h2 class="section-title-xl" style="margin-bottom:14px;">Share These.<br>Save Lives.</h2>
+    <p class="section-body-text">Campaign graphics produced by EKSUMSA SCOME for World TB Day 2026.</p>
+  </div>
+  <div class="posters-grid">
+    <div class="poster-card reveal">
+      <div class="poster-image-wrap">
+        <img src="images/tb-poster-1.jpg" alt="World Tuberculosis Day Awareness Poster — EKSUMSA SCOME" loading="lazy">
+      </div>
+      <div class="poster-card-footer">
+        <span class="poster-card-label">Awareness Poster — Red Edition</span>
+        <span class="poster-share-tag">
+          <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+          Share
+        </span>
+      </div>
+    </div>
+    <div class="poster-card reveal">
+      <div class="poster-image-wrap">
+        <img src="images/tb-poster-2.jpg" alt="World Tuberculosis Day — Myths vs Facts Poster — EKSUMSA SCOME" loading="lazy">
+      </div>
+      <div class="poster-card-footer">
+        <span class="poster-card-label">Myths vs Facts — Dark Edition</span>
+        <span class="poster-share-tag">
+          <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+          Share
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="posters-cta reveal">
+    <p class="posters-cta-text"><strong>Help us reach more people.</strong> Download and share these posters on your social media accounts — every share is a life potentially saved.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="https://www.instagram.com/p/DVy85rdCA8X/?igsh=MXJ3NjY2MWo5M2Y3cg==" target="_blank" class="btn-pill outline" style="font-size:11px;padding:10px 22px;">Instagram</a>
+      <a href="https://x.com/i/status/2032176159362822282" target="_blank" class="btn-pill outline" style="font-size:11px;padding:10px 22px;">Twitter / X</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CLINICAL CASES ═══ -->
+<section id="tb-cases">
+  <div class="cases-header reveal">
+    <div class="section-eyebrow" style="color:var(--green)">Clinical Education</div>
+    <h2 class="section-title-xl dark" style="margin-bottom:14px;">Clinical Case<br>Scenarios.</h2>
+    <p class="section-body-text dark">Four illustrative cases covering the full spectrum of TB presentation — from classic pulmonary disease to extrapulmonary complications.</p>
+  </div>
+  <div class="cases-grid">
+
+    <!-- Case 1 -->
+    <div class="case-card reveal">
+      <div class="case-card-top">
+        <span class="case-num-badge">CASE SCENARIO 01</span>
+        <span class="case-type-tag">Pulmonary TB</span>
+      </div>
+      <div class="case-card-body">
+        <div class="case-title">Classic Pulmonary TB</div>
+        <p class="case-presentation">
+          A <strong>28-year-old man</strong> presents with a chronic cough for 4 weeks, low-grade fever, night sweats, and progressive weight loss. He has recently begun coughing up blood. He lives in a <strong>crowded apartment</strong> — a known risk factor for transmission.
+        </p>
+        <div class="case-divider"></div>
+        <div class="case-row">
+          <div class="case-row-label">Diagnosis</div>
+          <div class="case-row-value">Active pulmonary TB caused by <strong><em>Mycobacterium tuberculosis</em></strong></div>
+        </div>
+        <div class="case-row">
+          <div class="case-row-label">Key Clue</div>
+          <div class="case-row-value">Chronic cough + <strong>haemoptysis</strong> + constitutional symptoms</div>
+        </div>
+        <div class="case-row">
+          <div class="case-row-label">Note</div>
+          <div class="case-row-value">Pericardial effusion may occur as a concurrent TB complication</div>
+        </div>
+      </div>
+      <div class="case-card-footer">
+        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        SCOME EKSUMSA · Educational Case
+      </div>
+    </div>
+
+    <!-- Case 2 -->
+    <div class="case-card reveal">
+      <div class="case-card-top">
+        <span class="case-num-badge">CASE SCENARIO 02</span>
+        <span class="case-type-tag">Latent TB</span>
+      </div>
+      <div class="case-card-body">
+        <div class="case-title">Latent TB — Asymptomatic</div>
+        <p class="case-presentation">
+          A <strong>22-year-old medical student</strong> undergoes routine tuberculosis screening. She reports <strong>no symptoms whatsoever</strong>. Her Mantoux (TST) test returns positive. Chest X-ray is completely normal with no parenchymal findings.
+        </p>
+        <div class="case-divider"></div>
+        <div class="case-row">
+          <div class="case-row-label">Diagnosis</div>
+          <div class="case-row-value"><strong>Latent TB</strong> — bacteria present but contained; patient is not infectious</div>
+        </div>
+        <div class="case-row">
+          <div class="case-row-label">Key Clue</div>
+          <div class="case-row-value">Positive TST + <strong>no symptoms</strong> + normal CXR = latent, not active</div>
+        </div>
+        <div class="case-row">
+          <div class="case-row-label">Risk</div>
+          <div class="case-row-value">Remains at risk for future reactivation — preventive therapy indicated</div>
+        </div>
+      </div>
+      <div class="case-card-footer">
+        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        SCOME EKSUMSA · Educational Case
+      </div>
+    </div>
+
+    <!-- Case 3 -->
+    <div class="case-card reveal">
+      <div class="case-card-top">
+        <span class="case-num-badge">CASE SCENARIO 03</span>
+        <span class="case-type-tag">Extrapulmonary TB</span>
+      </div>
+      <div class="case-card-body">
+        <div class="case-title">TB Meningitis</div>
+        <p class="case-presentation">
+          A <strong>5-year-old child</strong> presents with fever, headache, vomiting, neck stiffness, and altered consciousness. Symptoms developed <strong>gradually over 2 weeks</strong> — a subacute course atypical of routine bacterial meningitis.
+        </p>
+        <div class="case-divider"></div>
+        <div class="case-row">
+          <div class="case-row-label">Diagnosis</div>
+          <div class="case-row-value">Extrapulmonary TB — <strong>TB Meningitis</strong></div>
+        </div>
+        <div class="case-row">
+          <div class="case-row-label">Key Clue</div>
+          <div class="case-row-value"><strong>Subacute onset</strong> over days-weeks — not the abrupt onset of bacterial meningitis</div>
+        </div>
+        <div class="case-row">
+          <div class="case-row-label">Danger</div>
+          <div class="case-row-value">High morbidity and mortality — requires urgent diagnosis and treatment</div>
+        </div>
+      </div>
+      <div class="case-card-footer">
+        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        SCOME EKSUMSA · Educational Case
+      </div>
+    </div>
+
+    <!-- Case 4 -->
+    <div class="case-card reveal">
+      <div class="case-card-top">
+        <span class="case-num-badge">CASE SCENARIO 04</span>
+        <span class="case-type-tag">Extrapulmonary TB</span>
+      </div>
+      <div class="case-card-body">
+        <div class="case-title">TB Pericarditis</div>
+        <p class="case-presentation">
+          A <strong>50-year-old man</strong> presents with chest pain, shortness of breath, and bilateral leg swelling. Examination reveals <strong>muffled heart sounds</strong> and evidence of fluid accumulation around the heart.
+        </p>
+        <div class="case-divider"></div>
+        <div class="case-row">
+          <div class="case-row-label">Diagnosis</div>
+          <div class="case-row-value">Extrapulmonary TB — <strong>TB Pericarditis</strong> with pericardial effusion</div>
+        </div>
+        <div class="case-row">
+          <div class="case-row-label">Key Clue</div>
+          <div class="case-row-value">Classic triad: muffled sounds + raised JVP + hypotension = <strong>Beck's Triad</strong></div>
+        </div>
+        <div class="case-row">
+          <div class="case-row-label">Emergency</div>
+          <div class="case-row-value">Cardiac tamponade is a life-threatening complication requiring urgent drainage</div>
+        </div>
+      </div>
+      <div class="case-card-footer">
+        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        SCOME EKSUMSA · Educational Case
+      </div>
+    </div>
+
+  </div>
+  <div class="cases-slide-link reveal">
+    <div>
+      <p style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:6px;">Full Presentation</p>
+      <p><strong>Tuberculosis: Clinical Case Scenarios</strong> — View the complete annotated slides for deeper clinical context.</p>
+    </div>
+    <a href="#" class="btn-pill primary" style="font-size:11px;padding:10px 22px;">View Slides →</a>
+  </div>
+</section>
+
+<!-- ═══ RESEARCH ═══ -->
+<section id="tb-research">
+  <div class="research-header reveal">
+    <div class="section-eyebrow">Research Spotlight</div>
+    <h2 class="section-title-xl" style="margin-bottom:14px;">The Science<br>Behind TB.</h2>
+    <p class="section-body-text">Our Director of Academics &amp; Research presents a comprehensive analysis of the global TB landscape.</p>
+  </div>
+  <div class="research-feature">
+    <div class="research-feature-main reveal">
+      <div class="research-feature-bg">TB</div>
+      <div class="research-tag">Featured Write-up · 2024–2026</div>
+      <h3 class="research-title">Global Tuberculosis Paradigms: Epidemiological Shifts, Therapeutic Innovations &amp; Emerging Research Frontiers</h3>
+      <p class="research-abstract">A comprehensive analysis of where TB control stands in 2026 — from post-pandemic recovery and ultra-short drug regimens to AI-driven diagnostics and the socioeconomic inequities that continue to fuel transmission in high-burden regions including Nigeria.</p>
+      <div class="research-stats-row">
+        <div>
+          <div class="research-stat-val">10.7M</div>
+          <div class="research-stat-lbl">Global cases (2024)</div>
+        </div>
+        <div>
+          <div class="research-stat-val">1.23M</div>
+          <div class="research-stat-lbl">Deaths recorded</div>
+        </div>
+        <div>
+          <div class="research-stat-val">18</div>
+          <div class="research-stat-lbl">Vaccine candidates in trials</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:1;">
+        <a href="Global_Tuberculosis_Paradigms__Epidemiological_Shi___.pdf" target="_blank" class="btn-pill primary">Download PDF</a>
+        <a href="research.html" class="btn-pill outline">All Research →</a>
+      </div>
+    </div>
+    <div class="research-feature-side reveal">
+      <div class="research-side-label">Key Findings</div>
+      <ul class="research-key-findings">
+        <li>Asymptomatic TB transmission accounts for 25–51% of all spread events</li>
+        <li>New 4-month DS-TB regimen (2HPZM/2HPM) now conditionally recommended</li>
+        <li>BPaLM 6-month regimen replaces injections for MDR/RR-TB treatment</li>
+        <li>M72/AS01E vaccine showed 50% efficacy — Phase III trial underway</li>
+        <li>AI models trained on 32,000 Mtb genomes identifying novel drug targets</li>
+        <li>Climate change, malnutrition, and air pollution are amplifying the epidemic</li>
+        <li>Catastrophic costs affect 50% of TB-affected households in high-burden regions</li>
+      </ul>
+      <div style="padding-top:20px;border-top:1px solid rgba(200,245,100,.15);">
+        <div style="font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:6px;">Written by</div>
+        <div style="font-size:14px;font-weight:700;color:rgba(255,255,255,.6);">Director of Academics &amp; Research</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.3);">EKSUMSA SCOME · March 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SURVEY ═══ -->
+<section id="tb-survey">
+  <div class="survey-inner">
+    <div class="survey-left reveal">
+      <div class="section-eyebrow" style="color:var(--green)">Community Data</div>
+      <h2 class="section-title-xl dark" style="margin-bottom:16px;">What Our<br>Community Said.</h2>
+      <p class="section-body-text dark">We surveyed students and community members on TB awareness, misconceptions, and health-seeking behaviour. Results will be published here once analysis is complete.</p>
+    </div>
+    <div class="survey-placeholder reveal">
+      <div class="survey-placeholder-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      </div>
+      <div class="survey-placeholder-text">Survey results are being compiled and will be displayed here once analysis is complete.</div>
+      <div class="survey-placeholder-badge">
+        <svg viewBox="0 0 24 24" style="width:10px;height:10px;stroke:rgba(255,255,255,.3);fill:none;stroke-width:2;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Coming Soon
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VIDEOS ═══ -->
+<section id="tb-videos">
+  <div class="videos-header reveal">
+    <div class="section-eyebrow">Awareness Videos</div>
+    <h2 class="section-title-xl" style="margin-bottom:14px;">Watch.<br>Learn. Share.</h2>
+    <p class="section-body-text">Short-form awareness videos produced for the World TB Day 2026 campaign.</p>
+  </div>
+  <div class="video-placeholder-grid">
+    <div class="video-slot reveal">
+      <div class="video-coming-badge">Video Coming</div>
+      <div class="video-play-ring">
+        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3" fill="rgba(224,92,75,.7)"/></svg>
+      </div>
+      <div class="video-slot-label">Awareness Video 01</div>
+    </div>
+    <div class="video-slot reveal">
+      <div class="video-coming-badge">Video Coming</div>
+      <div class="video-play-ring">
+        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3" fill="rgba(224,92,75,.7)"/></svg>
+      </div>
+      <div class="video-slot-label">Awareness Video 02</div>
+    </div>
+  </div>
+  <p style="max-width:1200px;margin:20px auto 0;font-size:12px;color:rgba(255,255,255,.2);font-style:italic;">Replace the video-slot divs above with &lt;iframe&gt; embeds from YouTube, TikTok, or Instagram once your videos are live.</p>
+</section>
+
+<!-- ═══ CROSS-LINKS ═══ -->
+<section id="tb-crosslinks">
+  <div style="max-width:1200px;margin:0 auto 40px;">
+    <div class="section-eyebrow">Explore More</div>
+    <h2 class="section-title-xl" style="margin-bottom:0;">Continue<br>Learning.</h2>
+  </div>
+  <div class="crosslinks-inner">
+    <a href="medbites.html#infectious-disease" class="crosslink-card reveal">
+      <div class="crosslink-label">Med Bites</div>
+      <div class="crosslink-title">TB Clinical Flashcards</div>
+      <div class="crosslink-desc">Flip-card MCQs on TB diagnosis, treatment, and extrapulmonary presentations. Test your clinical reasoning.</div>
+      <div class="crosslink-arrow">→</div>
+    </a>
+    <a href="research.html" class="crosslink-card reveal">
+      <div class="crosslink-label">Research</div>
+      <div class="crosslink-title">Full Research Library</div>
+      <div class="crosslink-desc">Access the complete TB paradigms write-up and other evidence-based findings from SCOME EKSUMSA.</div>
+      <div class="crosslink-arrow">→</div>
+    </a>
+    <a href="workshops.html" class="crosslink-card reveal">
+      <div class="crosslink-label">Workshops &amp; Outreach</div>
+      <div class="crosslink-title">2026 Programme</div>
+      <div class="crosslink-desc">See all planned events, health campaigns, and outreach activities across the academic year.</div>
+      <div class="crosslink-arrow">→</div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-big">EKSUMSA<br>SCOME</div>
+      <p class="footer-tagline">"Advancing Medical Education,<br>One Student at a Time."</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="medbites.html">Med Bites</a>
+        <a href="resources.html">Academic Resources</a>
+        <a href="research.html">Research</a>
+        <a href="workshops.html">Workshops &amp; Outreach</a>
+        <a href="tb-day.html">TB Day 2026</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Connect with us</div>
+      <div class="footer-socials-row" style="margin-bottom:20px;">
+        <a href="https://x.com/i/status/2032176159362822282" target="_blank" title="Twitter / X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.912-5.622z"/></svg></a>
+        <a href="https://www.instagram.com/p/DVy85rdCA8X/?igsh=MXJ3NjY2MWo5M2Y3cg==" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="https://vt.tiktok.com/ZSuUeLGCw/" target="_blank" title="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.33a8.16 8.16 0 0 0 4.77 1.52V7.4a4.85 4.85 0 0 1-1-.71z"/></svg></a>
+      </div>
+      <p style="font-size:13px;color:rgba(255,255,255,.35);line-height:1.6;">Ekiti State University<br>Ado-Ekiti, Ekiti State, Nigeria</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 EKSUMSA SCOME — All rights reserved</span>
+    <span>IFMSA · Medical Students Worldwide</span>
+  </div>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>
