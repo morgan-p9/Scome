@@ -197,7 +197,7 @@ img { display: block; max-width: 100%; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
 }
 
-/* ─── MARCH AGENDA MODAL ─── */
+/* ─── AGENDA MODAL ─── */
 .agenda-modal-overlay {
   position: fixed; inset: 0; z-index: 2000;
   background: rgba(0,0,0,0.75);
@@ -264,6 +264,8 @@ img { display: block; max-width: 100%; }
   padding: 16px 8px; gap: 2px;
 }
 .agenda-event-day { font-family: 'Bebas Neue'; font-size: 28px; color: var(--lime); line-height: 1; }
+/* Shrink font for date ranges like "24–30" */
+.agenda-event-day[data-range] { font-size: 18px; line-height: 1.2; }
 .agenda-event-mon { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--green); }
 .agenda-event-body { padding: 14px 18px; }
 .agenda-event-focus {

@@ -20,7 +20,7 @@ const obs = new IntersectionObserver(
 );
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-/* ─── MARCH AGENDA DRAWER ─── */
+/* ─── AGENDA DRAWER ─── */
 function openAgenda() {
   const modal = document.getElementById('agendaModal');
   if (!modal) return;
