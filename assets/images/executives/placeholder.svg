@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img" aria-label="Portrait placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a17"/>
+      <stop offset="100%" stop-color="#0d0d0b"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="500" fill="url(#bg)"/>
+  <g fill="none" stroke="#c8f564" stroke-opacity="0.35" stroke-width="2">
+    <circle cx="200" cy="200" r="62"/>
+    <path d="M100 410 C 100 330, 300 330, 300 410 L 300 500 L 100 500 Z"/>
+  </g>
+  <text x="200" y="470" text-anchor="middle" font-family="'Outfit', system-ui, sans-serif" font-size="14" font-weight="600" letter-spacing="2" fill="#c8f564" fill-opacity="0.5">PORTRAIT</text>
+</svg>
