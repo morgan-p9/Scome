@@ -930,3 +930,166 @@ img { display: block; max-width: 100%; }
   .exec-card-role { font-size: 11px; }
   .exec-card-bio { font-size: 12px; }
 }
+
+
+/* ═══════════════════════════════════════════
+   AWARENESS RESOURCES ARCHIVE
+   ═══════════════════════════════════════════ */
+
+#awareness-archive {
+  background: var(--ink);
+  padding: 100px 60px;
+  border-top: 1px solid var(--rule);
+}
+
+.archive-header {
+  max-width: 1280px; margin: 0 auto 60px;
+}
+
+.archive-header code {
+  font-size: 11px;
+  background: rgba(200,245,100,.08);
+  color: var(--lime);
+  padding: 2px 8px; border-radius: 4px;
+}
+
+.archive-month-block {
+  max-width: 1280px; margin: 0 auto 64px;
+}
+
+.archive-month-block:last-child { margin-bottom: 0; }
+
+.archive-month-label {
+  display: flex; align-items: baseline; gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  flex-wrap: wrap;
+}
+
+.archive-month-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px; color: var(--lime); line-height: 1;
+}
+
+.archive-month-events {
+  font-size: 11px; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; color: rgba(255,255,255,.3);
+}
+
+/* Resource grid */
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.resource-grid--empty {
+  border: 1px dashed rgba(255,255,255,.1);
+  border-radius: 10px;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.resource-empty {
+  font-size: 13px; color: rgba(255,255,255,.35); line-height: 1.6;
+}
+
+/* Resource card */
+.resource-card {
+  background: var(--ink2);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: border-color .25s, transform .25s;
+}
+
+.resource-card:hover {
+  border-color: rgba(200,245,100,.3);
+  transform: translateY(-3px);
+}
+
+.resource-card-media {
+  aspect-ratio: 16 / 10;
+  background: #0a0a09;
+  overflow: hidden;
+  position: relative;
+}
+
+.resource-card-thumb {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform .4s ease;
+}
+
+.resource-card:hover .resource-card-thumb { transform: scale(1.04); }
+
+.resource-card-body {
+  padding: 16px 18px 20px;
+  display: flex; flex-direction: column; gap: 8px;
+  flex: 1;
+}
+
+.resource-card-type {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 10px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--lime);
+}
+
+.resource-card-type svg {
+  width: 12px; height: 12px;
+  stroke: var(--lime); fill: none; stroke-width: 2;
+  flex-shrink: 0;
+}
+
+.resource-card-title {
+  font-size: 14px; font-weight: 700; line-height: 1.35;
+  color: #fff;
+}
+
+.resource-card-desc {
+  font-size: 12px; color: rgba(255,255,255,.5);
+  line-height: 1.6; flex: 1;
+}
+
+.resource-card-tags {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-top: 4px;
+}
+
+.resource-tag {
+  font-size: 10px; font-weight: 700; letter-spacing: .08em;
+  padding: 3px 8px; border-radius: 100px;
+  border: 1px solid rgba(255,255,255,.1);
+  color: rgba(255,255,255,.4);
+}
+
+.resource-card-action {
+  margin-top: 12px;
+  font-size: 11px; padding: 9px 18px;
+  align-self: flex-start;
+}
+
+.resource-card-action--disabled {
+  opacity: .4; cursor: default; pointer-events: none;
+  background: transparent !important;
+  border-color: rgba(255,255,255,.15) !important;
+  color: rgba(255,255,255,.4) !important;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  #awareness-archive { padding: 70px 24px; }
+  .archive-header { margin-bottom: 40px; }
+  .resource-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+  .archive-month-block { margin-bottom: 48px; }
+}
+
+@media (max-width: 480px) {
+  #awareness-archive { padding: 48px 16px; }
+  .resource-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .resource-card-body { padding: 12px 14px 16px; }
+  .resource-card-title { font-size: 13px; }
+  .archive-month-label { flex-direction: column; gap: 6px; }
+}
